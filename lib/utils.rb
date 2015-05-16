@@ -3,5 +3,5 @@ module Utils
         return true if (choice == 'X' || choice == 'O')
         puts"The only valid letter choices are X or O"
         return false
-    end
+    end    
 end
