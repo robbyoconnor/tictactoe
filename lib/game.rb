@@ -10,56 +10,82 @@ class Game
     def initialize
       puts "Welcome to Tic Tac Toe!"
       @game_over = false
-      ttt            
+      ttt
     end
 
     def ttt
        loop do
+            start_game
             play
             print "Game Over, do you want to play again (y/n)? "
             break if (gets.chomp.downcase == 'n')
-        end 
+        end
     end
 
-    def play      
-      done = false
-       prompt_grid_size
+    def start_game
+        @game_over = false
+        prompt_grid_size
         prompt_player_choice
-        player = [@player,@computer].sample
-        puts "#{player == @player ? "Player" : "Computer"} will go first.".colorize(:light_yellow)
         puts "-".colorize(:light_yellow)*80
-        @turn = player                
-      loop do        
-        make_play @turn
-        if @board.win? @turn
-            @winner = @turn            
+        play
+    end
+
+    def first_player
+        player = [@player,@computer]
+        return player[Random.rand(2)]
+    end
+
+    def next_turn
+        if @turn == @player
+
+            @turn = @computer
+        else
+            @turn = @player
+        end
+    end
+
+    def play
+      done = false
+      loop do
+        if @board.moves_left > 0 && check_win(@turn)
             done = true
-            @game_over = true
-        elsif @board.draw
-            done = true 
-            puts "Draw."
-            puts "-".colorize(:light_yellow)*80
-            @game_over = true
-            @board.draw = true 
-        end 
-        break if done        
+        else
+            make_play @turn
+        end
+        break if done
       end
     end
 
-    def make_play (player)
-      require 'colorize'            
-      if(player == @player)
-          prompt_player_move
-          @board.print_board          
-          @turn = @computer
-          puts "\n\nComputer's Turn\n\n".colorize(color(@turn))          
-          
+    def check_win player
+        if(@board.win?(@turn))
+            @winner = @turn
+            @game_over = true
+            return true
+        elsif @board.moves_left == 0
+            done = true
+            puts "Draw."
+            puts "-".colorize(:light_yellow)*80
+            @game_over = true
+            @board.draw = true
+            return true
         else
+            next_turn
+            return false
+        end
+    end
+
+    def make_play (player)
+      require 'colorize'
+      if(player == @player)
+          puts "\nYour Turn\n\n".colorize(color(@player)) unless @game_over
+          prompt_player_move
+          @board.print_board
+          puts "-".colorize(:light_yellow)*80
+        else
+         puts "\n\nComputer's Turn\n\n".colorize(color(@computer)) unless @game_over
           computer_move
           @board.print_board
-          puts "-".colorize(:light_yellow)*80                    
-          @turn = @player
-          puts "\nYour Turn\n\n".colorize(color(@turn))                    
+          puts "-".colorize(:light_yellow)*80
         end
     end
 
@@ -88,33 +114,43 @@ class Game
             puts choice
             if choice ==  "1"
                 @board = make_board 3, 3
+                @rows = 3, @cols =3
                 valid = true
             elsif choice == "2"
                 @board = make_board 4, 4
+                @rows = 4, @cols =4
                 valid = true
             elsif choice == "3"
                 @board = make_board 5, 5
+                @rows = 5, @cols =5
                 valid = true
             elsif choice == "4"
                 @board = make_board 6, 6
+                @rows = 6, @cols =6
                 valid = true
             elsif choice == "5"
                 @board = make_board 7, 7
+                @rows = 7, @cols =7
                 valid = true
             elsif choice == "6"
                 @board = make_board 8, 8
+                @rows = 8, @cols =8
                 valid = true
             elsif choice == "7"
                 @board = make_board 9, 9
+                @rows = 9, @cols =9
                 valid = true
             elsif choice == "8"
                 @board = make_board 10, 10
+                @rows = 10, @cols =10
                 valid = true
             elsif choice == "9"
                 @board = make_board 11, 11
+                @rows = 11, @cols =11
                 valid = true
             elsif choice == "10"
                 @board = make_board 12, 12
+                @rows = 12, @cols =12
                 valid = true
             else
                 valid = false
@@ -135,6 +171,7 @@ class Game
                 valid = true
                 @player = choice
                 @computer = @player == "X" ? "O" : "X"
+                @turn = first_player
           end
             break if valid
         end
@@ -164,15 +201,35 @@ class Game
        end
    end
    def computer_move
-     #pick random spot
+
+
      valid = false
+
      loop do
-       row,col = Random.rand(@board.rows), Random.rand(@board.cols);
-       if @board.make_move row,col,@computer
-         valid = true
-       end
+         # corners first
+         if @board.make_move(0, 0,@computer) # top left hand corner
+            valid = true
+
+         elsif @board.make_move(@board.rows-1,0,@computer) # bottom left hand corner
+            valid =true
+
+        elsif @board.make_move(@board.cols-1,0,@computer) # top right hand corner
+            valid = true
+        elsif @board.make_move(@board.rows-1, @board.cols-1,@computer) # bottom left corner
+            valid = true
+        else
+            valid = pick_random_cell
+        end
        break if valid
      end
+  end
+
+  def pick_random_cell
+    row,col = Random.rand(@board.rows), Random.rand(@board.cols);
+    if @board.make_move row,col,@computer
+        return true
+    end
+    return false
   end
 
    def error err
