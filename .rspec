@@ -1,5 +1,5 @@
 --color
 --require spec_helper
 --format doc nested
-
+--require pry
 
