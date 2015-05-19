@@ -95,7 +95,7 @@ class Board
         (0...@cols).each do |c|
             if player_in_col(c,player)== @cols
                 @winning_col = c
-                puts "#{player} is a winner in column #{winning_col}".colorize(:light_green)
+                puts "#{player} is a winner in column #{winning_col+1}".colorize(:light_green)
                 return true
             end
         end
@@ -105,7 +105,7 @@ class Board
         (0...@rows).each do |r|
             if player_in_row(r, player)== @rows
                 @winning_row = r
-                puts "#{player} is a winner in row #{winning_row}".colorize(:light_green)
+                puts "#{player} is a winner in row #{winning_row+1}".colorize(:light_green)
                 return true
             end
         end
