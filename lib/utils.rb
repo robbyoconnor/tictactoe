@@ -23,5 +23,5 @@ module Utils
       else
         return false
       end
-    end 
+    end
 end

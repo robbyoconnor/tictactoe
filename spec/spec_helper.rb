@@ -6,7 +6,7 @@ require 'utils'
 RSpec.configure do |config|
   config.include Utils
    config.expect_with :rspec do |c|
-    c.syntax = :expect    
+    c.syntax = :expect
   end
 end
 module Helpers
