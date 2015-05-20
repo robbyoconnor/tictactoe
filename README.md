@@ -26,4 +26,3 @@ Terminology for the diagnals is taken from Linear Algebra's Matrix terminology.
      6 | 7 | 8
 
 
-
