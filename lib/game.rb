@@ -37,18 +37,13 @@ class Game
   end
 
   def next_turn
-    if @turn == @player
-
-      @turn = @computer
-    else
-      @turn = @player
-    end
+    (@turn == @player) ? @turn = @computer : @turn = @player unless @game_over
   end
 
   def play
     done = false
     loop do
-      if @board.moves_left > 0 && check_win(@turn)
+      if @board.moves_left > 0 && @game_over
         done = true
       else
         make_play @turn
@@ -58,12 +53,11 @@ class Game
   end
 
   def check_win player
-    if (@board.win?(@turn))
+    if @board.win?(@turn)
       @winner = @turn
       @game_over = true
       return true
     elsif @board.moves_left == 0
-      done = true
       puts "Draw."
       puts "-".colorize(:light_yellow)*80
       @game_over = true
@@ -88,6 +82,7 @@ class Game
       @board.print_board
       puts "-".colorize(:light_yellow)*80
     end
+    @game_over = true if check_win player
   end
 
   def prompt_grid_size

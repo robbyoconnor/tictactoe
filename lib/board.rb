@@ -93,7 +93,7 @@ class Board
     (0...@cols).each do |c|
       if rows
         if player_in_row(c, player) == @cols
-          @winning_col = c
+          @winning_row = c
           puts "Called..."
           puts "#{player} is a winner in row #{winning_row + 1}".colorize(:light_green)
           return true
