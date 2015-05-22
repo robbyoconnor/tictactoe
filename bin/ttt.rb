@@ -1,4 +1,2 @@
 require_relative '../lib/game'
-
-g = Game.new
-
+Game.new
