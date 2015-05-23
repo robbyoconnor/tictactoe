@@ -23,19 +23,7 @@ class Human < Player
       error "#{err} Valid values are [0 0 through #{@game.rows - 1} #{@game.rows - 1}]. " unless valid
       print "Enter a move in the form \"0 0\" Valid values are [0 0 through #{@game.rows - 1} #{@game.rows - 1}]: ".colorize(:light_yellow)
       move = gets.chomp.strip.split(' ')
-      if move.size < 2 || move.size > 2
-        err = 'You did not provide any input, or provided incorrect input.'
-        valid = false
-      elsif !check_numeric move.join
-        err = 'Input must be numeric.'
-        valid = false
-      elsif @game.board.valid_move? move[0].to_i, move[1].to_i
-        @game.board.make_move move[0].to_i, move[1].to_i, @letter
-        valid = true
-      else
-        err = "the move #{move[0]} #{move[1]} is not valid."
-        valid = false
-      end
+      err, valid = validate_move move
       break if valid
     end
   end
