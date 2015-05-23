@@ -52,7 +52,7 @@ class Game
     end
   end
 
-  def check_win(_player)
+  def check_win
     if @board.win?(@turn)
       @winner = @turn
       @game_over = true
@@ -73,7 +73,7 @@ class Game
     require 'colorize'
     player.move
     @board.print_board
-    @game_over = true if check_win player
+    @game_over = true if check_win
   end
 
   def prompt_grid_size
@@ -104,7 +104,7 @@ class Game
   end
 
   def grid_size_choice?(choice)
-    menu = {'1' => '3x3', '2' => '4x4', '3' => '5x5', '4' => '6x6', '5' => '7x7', '6' => '8x8', '7' => '9x9', '8' => '10x10', '9' => '11x11', '10' => '12x12'}
+    menu = { '1' => '3x3', '2' => '4x4', '3' => '5x5', '4' => '6x6', '5' => '7x7', '6' => '8x8', '7' => '9x9', '8' => '10x10', '9' => '11x11', '10' => '12x12' }
     if menu.key? choice
       create_board menu[choice].split('x')[0].to_i
       true
@@ -129,9 +129,8 @@ class Game
         valid = false
         error 'Invalid.'
       else
-        createPlayer choice
-        createComputer
-        puts "choice is X; Computer is #{@computer.letter}"
+        create_player choice
+        create_computer
         valid = true
       end
       break if valid
@@ -141,11 +140,11 @@ class Game
     puts "#{@turn} will go first."
   end
 
-  def createPlayer(player_choice)
-    @player = Human.new(player_choice, self)
+  def create_player(player_choice)
+    @player = Human.new player_choice, self
   end
 
-  def createComputer
+  def create_computer
     if @player.letter == 'X'
       @computer = Computer.new 'O', self
     else

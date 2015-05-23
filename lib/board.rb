@@ -128,7 +128,7 @@ class Board
   def print_row(cols)
     @board.map do |row|
       row.map { |e| "#{e}".colorize(color(e)) }
-          .join(' | '.colorize(:light_yellow))
+        .join(' | '.colorize(:light_yellow))
     end.join("\n" + '---'.colorize(:light_white) * ((cols > 3) ? (cols <= 9 ? cols + 2 : cols + 3) : cols) + "\n").center(50)
   end
 
