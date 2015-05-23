@@ -5,7 +5,7 @@ require_relative 'computer'
 require 'colorize'
 require 'active_model'
 class Game
-  attr_accessor :board, :player, :computer, :game_over, :turn, :rows, :cols
+  attr_accessor :board, :player, :computer, :game_over, :turn, :rows, :cols, :winner
 
   include Utils
 

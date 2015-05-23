@@ -1,6 +1,7 @@
 # Tic Tac Toe written in Ruby
 [![Code Climate](https://codeclimate.com/github/robbyoconnor/tictactoe/badges/gpa.svg)](https://codeclimate.com/github/robbyoconnor/tictactoe)
-**Requires Ruby 2.2 or better.**
+
+**Requires Ruby 2.2+**
 
 #To Run
 ruby bin/ttt.rb
