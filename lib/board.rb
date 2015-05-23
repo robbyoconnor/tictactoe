@@ -1,5 +1,6 @@
 require 'active_model'
 require_relative 'utils'
+
 class Board
   attr_accessor :board, :rows, :cols, :winner_row, :winning_row, :winner_col, :winning_col, :main_diagnal_win, :minor_diagnal_win, :draw, :moves_left
   attr_writer :board
@@ -15,8 +16,6 @@ class Board
     @cols = cols
     @moves_left = @rows * @cols
   end
-
-  attr_writer :board
 
   # Given the following:
   # 0 | 1 | 2
@@ -52,7 +51,7 @@ class Board
     (0...@cols).collect { |col| @board[row][col] }
   end
 
-  def count collection, player
+  def count(collection, player)
     collection.count { |p| p == player }
   end
 
@@ -60,11 +59,11 @@ class Board
   def win?(player)
     puts "Win? called #{@board}"
     # check minor diagnal
-    if count(minor_diagnal, player) == @rows
+    if count(minor_diagnal, player.letter) == @rows
       puts "#{player} is a winner on the minor diagnal".colorize(:light_green)
       return true
       # check main diagnal
-    elsif count(main_diagnal, player) == @rows
+    elsif count(main_diagnal, player.letter) == @rows
       puts "#{player} is a winner on the major diagnal".colorize(:light_green)
       return true
     elsif check player, true # check rows
@@ -94,7 +93,7 @@ class Board
       if rows
         if player_in_row(c, player) == @cols
           @winning_row = c
-          puts "Called..."
+          puts 'Called...'
           puts "#{player} is a winner in row #{winning_row + 1}".colorize(:light_green)
           return true
         end
@@ -106,17 +105,17 @@ class Board
         end
       end
     end
-    return false
+    false
   end
 
   # Returns the number of times the given player is in the row
   def player_in_row(row, player)
-    row(row).count { |p| p == player }
+    row(row).count { |p| p == player.letter }
   end
 
   # Returns the number of times the given player is in the column
   def player_in_col(col, player)
-    col(col).count { |p| p == player }
+    col(col).count { |p| p == player.letter }
   end
 
   def print_board
@@ -131,5 +130,9 @@ class Board
       row.map { |e| "#{e}".colorize(color(e)) }
           .join(' | '.colorize(:light_yellow))
     end.join("\n" + '---'.colorize(:light_white) * ((cols > 3) ? (cols <= 9 ? cols + 2 : cols + 3) : cols) + "\n").center(50)
+  end
+
+  def to_s
+    print_board
   end
 end

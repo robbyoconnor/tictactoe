@@ -24,4 +24,8 @@ module Utils
       return false
     end
   end
+
+  def error(err)
+    print err.colorize(:light_red)
+  end
 end
