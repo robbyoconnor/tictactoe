@@ -98,7 +98,7 @@ class Board
       else
         if player_in_col(c, player) == @cols
           @winning_col = c
-          puts "#{player} is a winner in row #{winning_col + 1}".colorize(:light_green)
+          puts "#{player} is a winner in column #{winning_col + 1}".colorize(:light_green)
           return true
         end
       end
