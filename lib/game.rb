@@ -58,7 +58,7 @@ class Game
       @game_over = true
       return true
     elsif @board.moves_left == 0
-      puts 'Draw.'
+      puts 'Draw.'.colorsize(:light_green)
       puts '-'.colorize(:light_yellow) * 80
       @game_over = true
       @board.draw = true
