@@ -48,6 +48,6 @@ class Human < Player
   end
 
   def to_s
-    'You (Player)'
+    'Player'
   end
 end
