@@ -7,7 +7,6 @@ class Computer < Human
   def initialize(letter, game)
     @letter = letter
     @game = game
-    puts inspect
   end
 
   def move
