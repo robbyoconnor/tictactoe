@@ -137,7 +137,7 @@ class Game
     end
 
     @turn = first_player
-    puts "#{@turn} will go first."
+    puts "#{@turn} will go first.".colorize(color(@turn.letter))
   end
 
   def create_player(player_choice)
