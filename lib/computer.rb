@@ -25,7 +25,6 @@ class Computer < Human
   def try_corners
     found = false
     moves = [[0, 0], [0, @game.board.cols - 1], [@game.board.rows - 1, @game.board.cols - 1], [@game.board.rows - 1, 0]].select { |move| @game.board.valid_move? move[0], move[1] }
-    puts "Corner noves available: #{moves}"
     return false unless moves
     moves.shuffle.each do |move|
       valid = @game.board.make_move move[0], move[1], @letter
