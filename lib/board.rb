@@ -57,7 +57,6 @@ class Board
 
   # Check minor diagnal and then main diagnal and then rows and then cols...we bail if one of this is true
   def win?(player)
-    puts "Win? called #{@board}"
     # check minor diagnal
     if count(minor_diagnal, player.letter) == @rows
       puts "#{player} is a winner on the minor diagnal".colorize(:light_green)
@@ -93,7 +92,6 @@ class Board
       if rows
         if player_in_row(c, player) == @cols
           @winning_row = c
-          puts 'Called...'
           puts "#{player} is a winner in row #{winning_row + 1}".colorize(:light_green)
           return true
         end
