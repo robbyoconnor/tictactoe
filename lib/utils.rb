@@ -1,11 +1,11 @@
 module Utils
   def check_if_x_or_o(choice)
     if choice.length > 1
-      return false
-    elsif choice =~ /\A[XO]{1}\Z/
-      return true
+      false
+    elsif choice =~ /\A[XO]\Z/
+      true
     else
-      return false
+      false
     end
   end
 
@@ -19,9 +19,9 @@ module Utils
 
   def check_numeric(input)
     if input.delete(' ') =~ /\A\d+\Z/
-      return true
+      true
     else
-      return false
+      false
     end
   end
 

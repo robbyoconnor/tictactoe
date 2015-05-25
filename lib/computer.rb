@@ -23,11 +23,10 @@ class Computer < Human
   end
 
   def try_corners
-    found = false
     moves = [[0, 0], [0, @game.board.cols - 1], [@game.board.rows - 1, @game.board.cols - 1], [@game.board.rows - 1, 0]].select { |move| @game.board.valid_move? move[0], move[1] }
     return false unless moves
     moves.shuffle.each do |move|
-      valid = try_move move[0],move[1]
+      valid = try_move move[0], move[1]
       if valid
         return true
       else

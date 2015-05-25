@@ -37,7 +37,7 @@ class Human < Player
     elsif !check_numeric move.join
       err = 'Input must be numeric.'
       valid = false
-    elsif try_move move[0].to_i ,move[1].to_i
+    elsif try_move move[0].to_i, move[1].to_i
       valid = true
     else
       err = "the move #{move[0]} #{move[1]} is not valid."
@@ -46,7 +46,7 @@ class Human < Player
     [err, valid]
   end
 
-  def try_move row, col
+  def try_move(row, col)
     @game.board.make_move row, col, @letter
   end
 
