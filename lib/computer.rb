@@ -27,7 +27,7 @@ class Computer < Human
     moves = [[0, 0], [0, @game.board.cols - 1], [@game.board.rows - 1, @game.board.cols - 1], [@game.board.rows - 1, 0]].select { |move| @game.board.valid_move? move[0], move[1] }
     return false unless moves
     moves.shuffle.each do |move|
-      valid = @game.board.make_move move[0], move[1], @letter
+      valid = try_move move[0],move[1]
       if valid
         return true
       else
@@ -39,7 +39,7 @@ class Computer < Human
   def pick_random_cell
     row = Random.rand(@game.board.rows)
     col = Random.rand(@game.board.cols)
-    return true if @game.board.make_move row, col, @letter
+    return true if try_move row, col
     false
   end
 
