@@ -9,7 +9,7 @@
 [![forthebadge](http://forthebadge.com/images/badges/uses-badges.svg)](http://forthebadge.com)
 [![forthebadge](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](http://forthebadge.com)
 
-**Requires Ruby 2.2*******
+**Requires Ruby 2.2**
 
 #To Run
 ruby bin/ttt.rb
