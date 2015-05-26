@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'rspec'
 require 'utils'
 require 'board'
-
+require 'game'
 RSpec.configure do |config|
   config.include Utils
   config.expect_with :rspec do |c|
