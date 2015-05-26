@@ -1,5 +1,6 @@
 # Tic Tac Toe written in Ruby
 [![Code Climate](https://codeclimate.com/github/robbyoconnor/tictactoe/badges/gpa.svg)](https://codeclimate.com/github/robbyoconnor/tictactoe)
+[![Codeship](https://codeship.com/projects/df8bbfa0-e56d-0132-c046-266c7b4e6c8b/status?branch=master)](https://codeship.com/projects/82017)
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 [![forthebadge](http://forthebadge.com/images/badges/built-with-ruby.svg)](http://forthebadge.com)
 [![forthebadge](http://forthebadge.com/images/badges/uses-git.svg)](http://forthebadge.com)
