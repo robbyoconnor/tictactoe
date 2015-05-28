@@ -20,8 +20,7 @@ class Human < Player
     valid = true
     err = '' # clear error
     loop do
-      error "#{err} Valid values are [0 0 through #{@game.rows - 1} #{@game.rows - 1}]. " unless valid
-      print "Enter a move in the form \"0 0\" Valid values are [0 0 through #{@game.rows - 1} #{@game.rows - 1}]: ".colorize(:light_yellow)
+      print_prompt err, valid
       move = gets.chomp.strip.split(' ')
       err, valid = validate_move move
       break if valid
@@ -30,24 +29,36 @@ class Human < Player
 
   def validate_move(move)
     err = ''
-    valid = false
-    if move.size < 2 || move.size > 2
-      err = 'You did not provide any input, or provided incorrect input.'
-      valid = false
-    elsif !check_numeric move.join
+    if is_numeric(move)
       err = 'Input must be numeric.'
       valid = false
-    elsif try_move move[0].to_i, move[1].to_i
+    elsif invalid?(move.size >= 2)
+      err = 'You did not provide any input, or provided incorrect input.'
+      valid = false
+    elsif try_move(move[0], move[1])
       valid = true
     else
-      err = "the move #{move[0]} #{move[1]} is not valid."
+      err = "The move (#{move[0]},#{move[1]}) is not valid."
       valid = false
     end
     [err, valid]
   end
 
-  def try_move(row, col)
-    @game.board.make_move row, col, @letter
+  def invalid?(cond)
+    !cond
+  end
+
+  def is_numeric(move)
+    check_numeric move
+  end
+
+  def invalid_move(move)
+    move.size < 2 || move.size > 2
+  end
+
+  def print_prompt(err, valid)
+    error "#{err} Valid values are [0 0 through #{@game.rows - 1} #{@game.rows - 1}]. " unless valid
+    print "Enter a move in the form \"0 0\" Valid values are [0 0 through #{@game.rows - 1} #{@game.rows - 1}]: ".colorize(:light_yellow)
   end
 
   def to_s

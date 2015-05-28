@@ -28,6 +28,7 @@ class Game
   end
 
   def start_game
+    @game_over = false
     prompt_grid_size
     prompt_player_choice
     @win_conditions = [ColumnWinCondition.new(self), RowWinCondition.new(self),
