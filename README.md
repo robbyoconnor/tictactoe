@@ -22,11 +22,11 @@ ruby bin/ttt.rb
 - It's got color thanks to the [colorize gem](https://rubygems.org/gems/colorize)
 
 ## Notes about terminology used
-Terminology for the diagnals is taken from Linear Algebra's Matrix terminology.
+Terminology for the diagonals is taken from Linear Algebra's Matrix terminology.
 
-**Major Diagnal**: [0, 4, 8]
+**Major Diagonal**: [0, 4, 8]
 
-**Minor Diagnal**:  [2,4,6]
+**Minor Diagonal**:  [2,4,6]
 
      0 | 1 | 2
      --- --- ---
