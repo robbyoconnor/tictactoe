@@ -43,6 +43,7 @@ class Computer < Human
       valid = try_move move[0], move[1]
       return valid if valid
     end
+    false 
   end
 
   def to_s

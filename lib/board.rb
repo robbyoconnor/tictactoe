@@ -39,11 +39,12 @@ class Board
   def print_row(cols)
     @board.map do |row|
       row.map { |e| "#{e}".colorize(color(e)) }
-        .join(' | '.colorize(:light_yellow))
-    end.join("\n" + '---'.colorize(:light_white) * print_cols(cols) + "\n").center(50)
+          .join(' | '.colorize(:light_yellow))
+    end.join("\n" + '---'.colorize(:light_white) * dashes(cols) + "\n").center(50)
   end
 
-  def print_cols(cols)
+  # to make shit pretty...we print out the dashes differently depending on how many columns the grid
+  def dashes(cols)
     ((cols > 3) ? (cols <= 9 ? cols + 2 : cols + 3) : cols)
   end
 
