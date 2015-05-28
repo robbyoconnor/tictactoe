@@ -40,6 +40,7 @@ class Game
   def first_player
     player = [@player, @computer]
     player[Random.rand(2)]
+    puts "#{@turn} will go first.".colorize(color(@turn.letter))
   end
 
   def next_turn
@@ -128,22 +129,30 @@ class Game
   def prompt_player_choice
     valid = true
     loop do
-      print 'The only valid choices are X or O. '.colorize(:light_red) unless valid
-      print 'Do you want to be X or O [X/O (case-insensitive)] '.colorize(:light_yellow)
+      print_msg err,valid
       choice = gets.chomp.upcase
-      unless check_if_x_or_o choice
-        valid = false
-        error 'Invalid.'
-      else
+      err,valid = validate_player_choice(choice)
+      if valid
         create_player choice
         create_computer
-        valid = true
       end
       break if valid
     end
-
     @turn = first_player
-    puts "#{@turn} will go first.".colorize(color(@turn.letter))
+  end
+
+  def print_msg err,valid
+    print 'The only valid choices are X or O. '.colorize(:light_red) unless valid
+    print 'Do you want to be X or O [X/O (case-insensitive)] '.colorize(:light_yellow)
+  end
+
+  def validate_player_choice choice
+    err = '', valid = false
+    unless check_if_x_or_o choice
+      err ' Invalid choice'
+      valid = false
+    end
+    [err,valid]
   end
 
   def create_player(player_choice)
