@@ -40,7 +40,11 @@ class Board
     @board.map do |row|
       row.map { |e| "#{e}".colorize(color(e)) }
         .join(' | '.colorize(:light_yellow))
-    end.join("\n" + '---'.colorize(:light_white) * ((cols > 3) ? (cols <= 9 ? cols + 2 : cols + 3) : cols) + "\n").center(50)
+    end.join("\n" + '---'.colorize(:light_white) * print_cols + "\n").center(50)
+  end
+
+  def print_cols
+    ((cols > 3) ? (cols <= 9 ? cols + 2 : cols + 3) : cols)
   end
 
   def to_s
