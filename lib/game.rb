@@ -39,8 +39,9 @@ class Game
 
   def first_player
     player = [@player, @computer]
-    player[Random.rand(2)]
+    @turn = player[Random.rand(2)]
     puts "#{@turn} will go first.".colorize(color(@turn.letter))
+    @turn
   end
 
   def next_turn
