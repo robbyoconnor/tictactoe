@@ -2,17 +2,21 @@ require_relative 'utils'
 require_relative 'board'
 require_relative 'human'
 require_relative 'computer'
+require_relative 'conditions/condition'
+require_relative 'conditions/column_win_condition'
+require_relative 'conditions/row_win_condition'
+require_relative 'conditions/minor_diagonal_win_condition'
+require_relative 'conditions/main_diagonal_win_condition'
 require 'colorize'
 require 'active_model'
 class Game
-  attr_accessor :board, :player, :computer, :game_over, :turn, :rows, :cols, :winner
+  attr_accessor :board, :player, :computer, :game_over, :turn, :rows, :cols, :winner, :col_winner, :row_winner, :diag
 
   include Utils
 
   def initialize
     puts 'Welcome to Tic Tac Toe!'.colorize(:light_white)
     @game_over = false
-    ttt
   end
 
   def ttt
@@ -24,9 +28,10 @@ class Game
   end
 
   def start_game
-    @game_over = false
     prompt_grid_size
     prompt_player_choice
+    @win_conditions = [ColumnWinCondition.new(self), RowWinCondition.new(self),
+                       MinorDiagonalWinCondition.new(self), MainDiagonalWinCondition.new(self)]
     play
     puts '-'.colorize(:light_yellow) * 80
   end
@@ -53,9 +58,9 @@ class Game
   end
 
   def check_win
-    if @board.win?(@turn)
-      @winner = @turn
+    if @win_conditions.map(&:win?).include? true
       @game_over = true
+      @winner = @turn
       return true
     elsif @board.moves_left == 0
       puts 'Draw.'.colorsize(:light_green)
@@ -65,8 +70,8 @@ class Game
       return true
     else
       next_turn
-      false
     end
+    false
   end
 
   def make_play(player)

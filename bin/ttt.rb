@@ -1,2 +1,3 @@
 require_relative '../lib/game'
-Game.new
+g = Game.new
+g.ttt

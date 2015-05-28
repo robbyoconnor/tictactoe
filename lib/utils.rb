@@ -28,4 +28,8 @@ module Utils
   def error(err)
     print err.colorize(:light_red)
   end
+
+  def count(collection, player)
+    collection.count { |p| p == player }
+  end
 end
