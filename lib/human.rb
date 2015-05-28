@@ -27,8 +27,6 @@ class Human < Player
     end
   end
 
-
-
   def validate_move(move)
     err = ''
     if is_numeric(move)
