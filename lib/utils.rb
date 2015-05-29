@@ -32,4 +32,8 @@ module Utils
   def count(collection, player)
     collection.count { |p| p == player }
   end
+
+  def try_move(row, col,player)
+    @game.board.make_move row.to_i, col.to_i, player
+  end
 end
