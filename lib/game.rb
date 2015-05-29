@@ -31,6 +31,7 @@ class Game
     @game_over = false
     prompt_grid_size
     prompt_player_choice
+    @turn = first_player
     @win_conditions = [ColumnWinCondition.new(self), RowWinCondition.new(self),
                        MinorDiagonalWinCondition.new(self), MainDiagonalWinCondition.new(self)]
     play
@@ -40,7 +41,6 @@ class Game
   def first_player
     player = [@player, @computer]
     @turn = player[Random.rand(2)]
-    @turn
   end
 
   def next_turn
@@ -127,20 +127,29 @@ class Game
   end
 
   def prompt_player_choice
-    valid = true
+    choice = '', valid = true
     loop do
       print_msg valid
-      choice = gets.chomp.upcase
-      valid = validate_player_choice(choice)
-      if valid
-        create_player choice
-        puts "#{@player} is #{@player.letter}\n".colorize(color(@player.letter))
-        create_computer
-        puts "#{@computer} is #{@computer.letter}\n".colorize(color(@computer.letter))
-      end
+      choice, valid = get_and_validate_choice
       break if valid
     end
-    @turn = first_player
+    create_players choice
+  end
+
+  def get_and_validate_choice
+    choice = gets.chomp.upcase
+    valid = validate_player_choice(choice)
+    [choice,valid]
+  end
+
+  def create_players choice
+    create_player choice
+    puts "#{@player} is #{@player.letter}\n".colorize(color(@player.letter))
+    create_computer
+    puts "#{@computer} is #{@computer.letter}\n".colorize(color(@computer.letter))
+  end
+
+  def print_first_turn
     puts "#{@turn} will go first.".colorize(color(@turn.letter))
   end
 
