@@ -8,6 +8,8 @@
 [![forthebadge](http://forthebadge.com/images/badges/no-ragrets.svg)](http://forthebadge.com)
 [![forthebadge](http://forthebadge.com/images/badges/uses-badges.svg)](http://forthebadge.com)
 [![forthebadge](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/compatibility-emacs.svg)](http://forthebadge.com)
+
 
 **Requires Ruby 2.2**
 
@@ -34,4 +36,13 @@ Terminology for the diagonals is taken from Linear Algebra's Matrix terminology.
      --- --- ---
      6 | 7 | 8
 
+# About the design 
+
+- WinConditions have a common super class of Condition
+- Computer Move strategies are each in their own class and again modular to improve testability with a common subclass of Strategy.
+- Grid Size **must** be square ```(nxn)``` and starts at 3x3 and maxes out at 12x12. This was due to it not looking great on my system. 
+ 
+ 
+This design can be  very easily tweaked to handle the [n-queens problem](http://en.wikipedia.org/wiki/Eight_queens_puzzle).
+  
 
