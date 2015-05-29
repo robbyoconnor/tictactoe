@@ -40,7 +40,6 @@ class Game
   def first_player
     player = [@player, @computer]
     @turn = player[Random.rand(2)]
-    puts "#{@turn} will go first.".colorize(color(@turn.letter))
     @turn
   end
 
@@ -61,12 +60,12 @@ class Game
   end
 
   def check_win
-    if @win_conditions.map(&:win?).include? true
+    if @win_conditions.map(&:win?).include?(true)
       @game_over = true
       @winner = @turn
       return true
     elsif @board.moves_left == 0
-      puts 'Draw.'.colorsize(:light_green)
+      puts "Cat's Game.".colorize(:light_green)
       puts '-'.colorize(:light_yellow) * 80
       @game_over = true
       @board.draw = true
@@ -135,11 +134,14 @@ class Game
       valid = validate_player_choice(choice)
       if valid
         create_player choice
+        puts "#{@player} is #{@player.letter}\n".colorize(color(@player.letter))
         create_computer
+        puts "#{@computer} is #{@computer.letter}\n".colorize(color(@computer.letter))
       end
       break if valid
     end
     @turn = first_player
+    puts "#{@turn} will go first.".colorize(color(@turn.letter))
   end
 
   def print_msg(valid)

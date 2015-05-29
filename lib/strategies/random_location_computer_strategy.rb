@@ -4,7 +4,6 @@ class RandomLocationComputerStrategy < Strategy
 
   def initialize(game)
     super(game)
-    @game = game
   end
 
   def move

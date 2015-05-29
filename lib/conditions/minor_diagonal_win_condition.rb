@@ -7,8 +7,8 @@ class MinorDiagonalWinCondition < DiagonalWinCondition
 
   def win?
     require 'colorize'
-    if diagonal_win 'minor'
-      print_win 'minor'
+    if diagonal_win('minor')
+      print_win('minor')
       return true
     end
     false

@@ -1,7 +1,7 @@
 require_relative 'game'
 require_relative 'human'
-require_relative 'strategies/corner_move_strategy'
-require_relative 'strategies/random_location_strategy'
+require_relative 'strategies/corner_move_computer_strategy'
+require_relative 'strategies/random_location_computer_strategy'
 class Computer < Human
   attr_accessor :letter, :game
 

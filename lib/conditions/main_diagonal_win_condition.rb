@@ -7,10 +7,12 @@ class MainDiagonalWinCondition < DiagonalWinCondition
 
   def win?
     require 'colorize'
-    if diagonal_win 'main'
-      print_win 'main'
+    if diagonal_win('main')
+      print_win('main')
       return true
     end
     false
   end
 end
+
+

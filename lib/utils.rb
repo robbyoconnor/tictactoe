@@ -30,7 +30,7 @@ module Utils
   end
 
   def count(collection, player)
-    collection.count { |p| p == player }
+    collection.count { |p| p == player.letter }
   end
 
   def try_move(row, col,player)
