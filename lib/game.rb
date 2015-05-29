@@ -139,10 +139,10 @@ class Game
   def get_and_validate_choice
     choice = gets.chomp.upcase
     valid = validate_player_choice(choice)
-    [choice,valid]
+    [choice, valid]
   end
 
-  def create_players choice
+  def create_players(choice)
     create_player choice
     puts "#{@player} is #{@player.letter}\n".colorize(color(@player.letter))
     create_computer

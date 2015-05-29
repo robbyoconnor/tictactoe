@@ -3,5 +3,4 @@ class Player
   def move
     false
   end
-
 end

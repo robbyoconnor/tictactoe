@@ -5,11 +5,10 @@ require_relative 'strategies/random_location_computer_strategy'
 class Computer < Human
   attr_accessor :letter, :game
 
-
   def initialize(letter, game)
     @letter = letter
     @game = game
-    @strategies = [CornerMoveComputerStrategy.new(@game),RandomLocationComputerStrategy.new(@game)]
+    @strategies = [CornerMoveComputerStrategy.new(@game), RandomLocationComputerStrategy.new(@game)]
   end
 
   def move

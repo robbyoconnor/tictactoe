@@ -14,5 +14,3 @@ class MainDiagonalWinCondition < DiagonalWinCondition
     false
   end
 end
-
-
