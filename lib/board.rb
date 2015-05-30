@@ -32,11 +32,11 @@ class Board
   def print_board
     require 'colorize'
     print "\n"
-    puts print_row cols
+    puts print_rows cols
     print "\n"
   end
 
-  def print_row(cols)
+  def print_rows(cols)
     @board.map do |row|
       row.map { |e| "#{e}".colorize(color(e)) }
         .join(' | '.colorize(:light_yellow))
