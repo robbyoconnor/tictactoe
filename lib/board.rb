@@ -2,7 +2,7 @@ require 'active_model'
 require_relative 'utils'
 
 class Board
-  attr_accessor :board, :rows, :cols, :winner_row, :winning_row, :winner_col, :winning_col, :main_diagnal_win, :minor_diagnal_win, :draw, :moves_left
+  attr_accessor :board, :rows, :cols, :winner_row, :winning_row, :winner_col, :winning_col, :main_diagonal_win, :minor_diagonal_win, :draw, :moves_left
   attr_writer :board
   include ActiveModel::Model
   include ActiveModel::Validations
