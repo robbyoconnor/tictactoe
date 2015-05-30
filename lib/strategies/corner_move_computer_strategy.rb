@@ -19,10 +19,7 @@ class CornerMoveComputerStrategy < Strategy
   end
 
   def find_valid_corner_move
-    get_valid_corner_moves.each do |move|
-      valid = try_move move[0], move[1], @game.computer.letter
-      return valid if valid
-    end
-    false
+    corner = get_valid_corner_moves.first
+    try_move corner[0], corner[1], @game.computer.letter
   end
 end

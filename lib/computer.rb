@@ -15,6 +15,7 @@ class Computer < Human
     puts "\n\nComputer's Turn\n\n".colorize(color(@letter)) unless @game.game_over
     loop do
       valid = @strategies[0].move
+      puts "#{valid}"
       valid = @strategies[1].move unless valid
       break if valid
     end

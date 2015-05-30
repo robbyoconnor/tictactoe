@@ -36,4 +36,8 @@ module Utils
   def try_move(row, col, player)
     @game.board.make_move row.to_i, col.to_i, player
   end
+
+  def err(msg)
+    print "#{msg}".colorize(:light_red)
+  end
 end
