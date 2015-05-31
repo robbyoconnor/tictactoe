@@ -31,7 +31,7 @@ class DiagonalWinCondition < Condition
   end
 
   def print_win(diagonal)
-      puts "#{@game.turn} has won on the #{diagonal} diagonal.".colorize(color(@game.turn.letter))
+    puts "#{@game.turn} has won on the #{diagonal} diagonal.".colorize(color(@game.turn.letter))
   end
 
   def diagonal_win(diagonal)

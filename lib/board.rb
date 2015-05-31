@@ -18,9 +18,7 @@ class Board
   end
 
   def valid_move?(row, col)
-    if check_dim_bound(row)
-      return false
-    end
+    return false if check_dim_bound(row)
     if check_dim_bound(col)
       false
     elsif @board[row][col] == ' '
@@ -28,7 +26,6 @@ class Board
     else
       false
     end
-
   end
 
   def check_dim_bound(size)
