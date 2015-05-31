@@ -20,6 +20,6 @@ class CornerMoveComputerStrategy < Strategy
 
   def find_valid_corner_move
     corner = get_valid_corner_moves.first
-    try_move corner[0], corner[1], @game.computer.letter
+    corner ? (try_move(corner[0], corner[1], @game.computer.letter))  : false
   end
 end
