@@ -130,16 +130,16 @@ class Game
     choice = '', valid = true
     loop do
       print_msg valid
-      choice, valid = get_and_validate_choice
+      valid, choice = get_and_validate_choice
       break if valid
     end
-    create_players choice
+    create_players choice if valid
   end
 
   def get_and_validate_choice
     choice = gets.chomp.upcase
     valid = validate_player_choice(choice)
-    [choice, valid]
+    [valid, choice]
   end
 
   def create_players(choice)
@@ -155,16 +155,13 @@ class Game
 
   def print_msg(valid)
     print 'The only valid choices are X or O. '.colorize(:light_red) unless valid
-    print 'Do you want to be X or O [X/O (case-insensitive)] '.colorize(:light_yellow)
+    print 'Do you want to be X or O [X/O (case-insensitive)]: '.colorize(:light_yellow)
   end
 
   def validate_player_choice(choice)
-    err = '', valid = false
-    unless check_if_x_or_o choice
-      err ' Invalid choice'
-      valid = false
-    end
-    [err, valid]
+    valid = true
+    valid = false unless check_if_x_or_o choice
+    valid
   end
 
   def create_player(player_choice)
