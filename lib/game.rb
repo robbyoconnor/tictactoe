@@ -10,7 +10,7 @@ require_relative 'conditions/main_diagonal_win_condition'
 require 'colorize'
 require 'active_model'
 class Game
-  attr_accessor :board, :player, :computer, :game_over, :turn, :rows, :cols, :winner, :col_winner, :row_winner, :diag
+  attr_accessor :board, :player, :computer, :game_over, :turn, :rows, :cols
 
   include Utils
 
