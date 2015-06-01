@@ -1,3 +1,4 @@
+require 'colorize'
 module Utils
   def check_if_x_or_o(choice)
     if choice.length > 1
@@ -14,7 +15,8 @@ module Utils
   end
 
   def make_board(rows, cols)
-    Board.new rows, cols
+    require_relative 'board'
+    Board.new(rows,cols)
   end
 
   def check_numeric(input)
