@@ -9,8 +9,6 @@ require 'factory_girl'
 require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 
-require 'coveralls'
-Coveralls.wear!
 
 module Helpers
   module Utils

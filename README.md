@@ -2,7 +2,6 @@
 [![Code Climate](https://codeclimate.com/github/robbyoconnor/tictactoe/badges/gpa.svg)](https://codeclimate.com/github/robbyoconnor/tictactoe)
 [![Test Coverage](https://codeclimate.com/github/robbyoconnor/tictactoe/badges/coverage.svg)](https://codeclimate.com/github/robbyoconnor/tictactoe/coverage)
 [![Build Status](https://travis-ci.org/robbyoconnor/tictactoe.svg?branch=master)](https://travis-ci.org/robbyoconnor/tictactoe)
-[![Coverage Status](https://coveralls.io/repos/robbyoconnor/tictactoe/badge.svg)](https://coveralls.io/r/robbyoconnor/tictactoe)
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 [![forthebadge](http://forthebadge.com/images/badges/built-with-ruby.svg)](http://forthebadge.com)
 [![forthebadge](http://forthebadge.com/images/badges/uses-git.svg)](http://forthebadge.com)

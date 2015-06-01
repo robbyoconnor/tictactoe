@@ -8,7 +8,5 @@ rvm:
 addons:
   code_climate:
     repo_token: c0704de6392be837a545582b3476e35f2f36767c7b048c9a48209698ac879078
-  coveralls:
-    repo_token: VwNflMGCFRXMVyV15D6SYLCvwNMo53UpS
 script: bundle exec rspec
 
