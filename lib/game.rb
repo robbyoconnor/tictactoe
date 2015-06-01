@@ -84,7 +84,7 @@ class Game
       puts 'Grid sizes (Max 12x12)'.center(80).colorize(:light_white)
       puts '' "
             ---------------------
-            | 1.  3x3 [default] |
+            | 1.  3x3           |
             | 2.  4x4           |
             | 3.  5x5           |
             | 4.  6x6           |

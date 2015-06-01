@@ -29,7 +29,7 @@ class Human < Player
 
   def validate_move(move)
     err = ''
-    if is_numeric(move)
+    if numeric?(move)
       err = 'Input must be numeric.'
       valid = false
     elsif invalid?(move.size >= 2)
@@ -48,7 +48,7 @@ class Human < Player
     !cond
   end
 
-  def is_numeric(move)
+  def numeric?(move)
     check_numeric move
   end
 
