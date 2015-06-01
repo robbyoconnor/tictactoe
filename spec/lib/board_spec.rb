@@ -86,7 +86,7 @@ describe Board do
     it 'prints an empty board correctly' do
       expected = "\n\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\n\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\n\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\n\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\n\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\n"
       output = capture_stdout do
-        board.print_board
+        print board.to_s
       end
       expect(output).to eq(expected)
     end
@@ -94,8 +94,9 @@ describe Board do
     it 'prints a valid board if board is populated' do
       board = build(:draw)
       expected = "\n\e[0;92;49mX\e[0m\e[0;93;49m | \e[0m\e[0;91;49mO\e[0m\e[0;93;49m | \e[0m\e[0;91;49mO\e[0m\n\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\n\e[0;91;49mO\e[0m\e[0;93;49m | \e[0m\e[0;92;49mX\e[0m\e[0;93;49m | \e[0m\e[0;92;49mX\e[0m\n\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\n\e[0;92;49mX\e[0m\e[0;93;49m | \e[0m\e[0;91;49mO\e[0m\e[0;93;49m | \e[0m\e[0;91;49mO\e[0m\n"
+
       output = capture_stdout do
-        board.print_board
+        print board.to_s
       end
       expect(output).to eq(expected)
     end
