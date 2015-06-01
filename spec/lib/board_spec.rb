@@ -75,9 +75,29 @@ describe Board do
 
   describe '#get_rows' do
     let(:board) { build(:board) }
-    it 'prints an empty board correctly.' do
+    it 'returns an empty board correctly.' do
       expected = "\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\n\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\n\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\n\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\n\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m"
       expect(board.get_rows(board.rows)).to eq(expected)
+    end
+  end
+
+  describe '#print_rows' do
+    let(:board) { build(:board) }
+    it 'prints an empty board correctly' do
+      expected = "\n\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\n\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\n\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\n\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\n\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\n"
+      output = capture_stdout do
+        board.print_board
+      end
+      expect(output).to eq(expected)
+    end
+
+    it 'prints a valid board if board is populated' do
+      board = build(:draw)
+      expected = "\n\e[0;92;49mX\e[0m\e[0;93;49m | \e[0m\e[0;91;49mO\e[0m\e[0;93;49m | \e[0m\e[0;91;49mO\e[0m\n\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\n\e[0;91;49mO\e[0m\e[0;93;49m | \e[0m\e[0;92;49mX\e[0m\e[0;93;49m | \e[0m\e[0;92;49mX\e[0m\n\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\n\e[0;92;49mX\e[0m\e[0;93;49m | \e[0m\e[0;91;49mO\e[0m\e[0;93;49m | \e[0m\e[0;91;49mO\e[0m\n"
+      output = capture_stdout do
+        board.print_board
+      end
+      expect(output).to eq(expected)
     end
   end
 end

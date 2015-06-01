@@ -44,10 +44,19 @@ module Helpers
       expect(board.make_move(rows, cols, player)).to(eq(expected))
     end
   end
+
+  def capture_stdout(&_block)
+    real_stdout, $stdout = $stdout, StringIO.new
+    yield
+    $stdout.string
+  ensure
+    $stdout = real_stdout
+  end
 end
 
 RSpec.configure do |config|
   config.include Utils
+  config.include Helpers
   config.include Helpers::Utils
   config.include Helpers::Board
   config.include FactoryGirl::Syntax::Methods

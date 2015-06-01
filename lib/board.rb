@@ -41,16 +41,15 @@ class Board
   def print_board
     require 'colorize'
     print "\n"
-    puts get_rows cols
+    print get_rows cols
     print "\n"
   end
 
   def get_rows(cols)
     ret = @board.map do |row|
       row.map { |e| "#{e}".colorize(color(e)) }
-        .join(' | '.colorize(:light_yellow))
-    end.join("\n" + '---'.colorize(:light_white) * dashes(cols) + "\n").center(50)
-
+      .join(' | '.colorize(:light_yellow))
+    end.join("\n" + '---'.colorize(:light_white) * dashes(cols) + "\n")
   end
 
   # to make shit pretty...we print out the dashes differently depending on how many columns the grid
