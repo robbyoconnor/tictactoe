@@ -49,4 +49,8 @@ RSpec.configure do |config|
   FactoryGirl.find_definitions
   require "codeclimate-test-reporter"
   CodeClimate::TestReporter.start
+
+  require 'coveralls'
+  Coveralls.wear!
+
 end

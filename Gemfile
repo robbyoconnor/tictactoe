@@ -13,3 +13,5 @@ group :development do
 end
 
 gem "codeclimate-test-reporter", group: :test, require: nil
+gem 'coveralls', require: false
+
