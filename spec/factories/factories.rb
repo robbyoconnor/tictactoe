@@ -2,11 +2,11 @@ FactoryGirl.define do
   factory :board, class: Board
 
   factory :main_diag_win, class: Board do
-    board [['X', 'O' 'X'], %w(O X O), %w(O O X)]
+    board [['X', 'O','X'], ['O','X','O'], ['O','O','X']]
   end
 
   factory :minor_diag, class: Board do
-    board [%w(X O O), %w(O O O), %w(O X O)]
+    board [['X','O','O'], ['O','O', 'O'], ['O','X','O']]
   end
 
   factory :minor_diag_win, class: Board do
@@ -18,13 +18,13 @@ FactoryGirl.define do
   end
 
   factory :row_winner, class: Board do
-    board [%w(X X X), [' ', ' ', ' '], [' ', ' ', ' ']]
+    board [['X', 'X', 'X'], [' ', ' ', ' '], [' ', ' ', ' ']]
   end
 
   factory :column_winner, class: Board do
     board [['X', ' ', ' '], ['X', ' ', ' '], ['X', ' ', ' ']]
   end
   factory :draw, class: Board do
-    board [%w(X O O), %w(O X X), %w(X O O)]
+    board [['X','O','O'], ['O', 'X', 'X'], ['X', 'O', 'O']]
   end
 end
