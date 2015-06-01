@@ -15,11 +15,11 @@ class Game
   include Utils
 
   def initialize
-    puts 'Welcome to Tic Tac Toe!'.colorize(:light_white)
     @game_over = false
   end
 
   def ttt
+    puts 'Welcome to Tic Tac Toe!'.colorize(:light_white)
     loop do
       start_game
       print 'Game Over, do you want to play again (y/n)? '.colorize(:light_yellow)

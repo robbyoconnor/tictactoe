@@ -40,19 +40,19 @@ describe Utils do
     end
   end
 
-  describe "#error" do
-    it "prints a string which is light_red with the message given" do
+  describe '#error' do
+    it 'prints a string which is light_red with the message given' do
       output = capture_stdout do
-        print error("testing 123")
+        print error('testing 123')
       end
       expect(output).to eq("\e[0;91;49mtesting 123\e[0m")
     end
   end
 
-  describe "#color" do
+  describe '#color' do
     it "returns light_green if the player is \"X\"" do
-      expect(color("X")).to eq(:light_green)
-      expect(color("O")).to eq(:light_red)
+      expect(color('X')).to eq(:light_green)
+      expect(color('O')).to eq(:light_red)
     end
   end
 end
