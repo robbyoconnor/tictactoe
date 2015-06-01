@@ -52,7 +52,7 @@ class Human < Player
     check_numeric move
   end
 
-  def invalid_move(move)
+  def invalid_move?(move)
     move.size < 2 || move.size > 2
   end
 
