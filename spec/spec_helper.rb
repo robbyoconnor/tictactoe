@@ -47,4 +47,6 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
   FactoryGirl.find_definitions
+  require "codeclimate-test-reporter"
+  CodeClimate::TestReporter.start
 end

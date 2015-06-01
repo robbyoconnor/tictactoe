@@ -11,3 +11,5 @@ group :development do
   gem 'pry-byebug', '~> 3.1.0'
   gem 'factory_girl', '~> 4.0'
 end
+
+gem "codeclimate-test-reporter", group: :test, require: nil
