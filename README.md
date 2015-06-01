@@ -11,7 +11,7 @@
 [![forthebadge](http://forthebadge.com/images/badges/compatibility-emacs.svg)](http://forthebadge.com)
 
 
-**Requires Ruby 2.2**
+**Requires Ruby 2.1+**
 
 #To Run
 ruby bin/ttt.rb
