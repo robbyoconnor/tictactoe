@@ -52,6 +52,9 @@ describe Utils do
   describe '#color' do
     it "returns light_green if the player is \"X\"" do
       expect(color('X')).to eq(:light_green)
+    end
+
+    it "returns :light_red if the player is \"O\"" do
       expect(color('O')).to eq(:light_red)
     end
   end

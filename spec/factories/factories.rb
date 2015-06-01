@@ -27,4 +27,13 @@ FactoryGirl.define do
   factory :draw, class: Board do
     board [%w(X O O), %w(O X X), %w(X O O)]
   end
+
+  factory :game, class: Game do
+  end
+
+  factory :human, class: Human do
+  end
+
+  factory :computer, class: Computer do
+  end
 end
