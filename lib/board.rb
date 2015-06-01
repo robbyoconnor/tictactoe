@@ -48,7 +48,7 @@ class Board
   def print_rows(cols)
     @board.map do |row|
       row.map { |e| "#{e}".colorize(color(e)) }
-          .join(' | '.colorize(:light_yellow))
+        .join(' | '.colorize(:light_yellow))
     end.join("\n" + '---'.colorize(:light_white) * dashes(cols) + "\n").center(50)
   end
 

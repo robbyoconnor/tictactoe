@@ -16,7 +16,7 @@ module Utils
 
   def make_board(rows, cols)
     require_relative 'board'
-    Board.new(rows,cols)
+    Board.new(rows, cols)
   end
 
   def check_numeric(input)

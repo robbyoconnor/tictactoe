@@ -12,5 +12,4 @@ group :development do
   gem 'factory_girl', '~> 4.0'
 end
 
-gem "codeclimate-test-reporter", group: :test, require: nil
-
+gem 'codeclimate-test-reporter', group: :test, require: nil

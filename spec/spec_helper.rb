@@ -1,6 +1,6 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-require "codeclimate-test-reporter"
+require 'codeclimate-test-reporter'
 CodeClimate::TestReporter.start
 
 require 'rspec'
@@ -38,6 +38,10 @@ module Helpers
 
     def get_board(rows, cols)
       build(:board, rows: rows, cols: cols)
+    end
+
+    def make_move(board, rows, cols, player, expected)
+      expect(board.make_move(rows, cols, player)).to(eq(expected))
     end
   end
 end

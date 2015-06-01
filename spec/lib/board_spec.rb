@@ -50,4 +50,26 @@ describe Board do
       end
     end
   end
+  describe '#make_move' do
+    let(:board) { build(:board) }
+    it 'invalid move returns false' do
+      make_move(board, -1, -1, 'X', false)
+      make_move(board, 3, 3, 'X', false)
+    end
+
+    it 'valid moves return true' do
+      make_move(board, 0, 0, 'X', true)
+      make_move(board, 0, 1, 'X', true)
+      make_move(board, 0, 2, 'X', true)
+    end
+
+    it 'is invalid if not empty' do
+      make_move(board, 0, 0, 'X', true)
+      make_move(board, 0, 1, 'X', true)
+      make_move(board, 0, 2, 'X', true)
+      make_move(board, 0, 0, 'X', false)
+      make_move(board, 0, 1, 'X', false)
+      make_move(board, 0, 2, 'X', false)
+    end
+  end
 end
