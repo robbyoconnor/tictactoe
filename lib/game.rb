@@ -132,7 +132,7 @@ class Game
   end
 
   def get_and_validate_choice
-    choice = gets.chomp.upcase
+    choice = gets.chomp.strip.upcase
     valid = validate_player_choice(choice)
     [valid, choice]
   end
