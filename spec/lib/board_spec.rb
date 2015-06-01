@@ -8,7 +8,7 @@ describe Board do
         board_valid(8, 8, true)
       end
 
-      it 'board larger sized 12x12 is valid' do
+      it 'board sized 12x12 is valid' do
         board_valid(12, 12, true)
       end
     end
