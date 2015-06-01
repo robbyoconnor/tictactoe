@@ -5,6 +5,13 @@ require 'utils'
 require 'board'
 require 'game'
 require 'factory_girl'
+
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
+
+require 'coveralls'
+Coveralls.wear!
+
 module Helpers
   module Utils
     # utility function to make exercising our utility function DRY
@@ -47,10 +54,4 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
   FactoryGirl.find_definitions
-  require "codeclimate-test-reporter"
-  CodeClimate::TestReporter.start
-
-  require 'coveralls'
-  Coveralls.wear!
-
 end
