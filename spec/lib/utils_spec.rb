@@ -42,10 +42,10 @@ describe Utils do
 
   describe '#error' do
     it 'prints a string which is light_red with the message given' do
-      output = capture_stdout do
+      output = lambda  do
         print error('testing 123')
       end
-      expect(output).to eq("\e[0;91;49mtesting 123\e[0m")
+      expect(output).to output("\e[0;91;49mtesting 123\e[0m").to_stdout
     end
   end
 
