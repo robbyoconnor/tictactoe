@@ -48,14 +48,9 @@ class Game
   end
 
   def play
-    done = false
     loop do
-      if @board.moves_left > 0 && @game_over
-        done = true
-      else
-        make_play @turn
-      end
-      break if done
+      make_play @turn
+      break if @game_over
     end
   end
 
@@ -69,7 +64,7 @@ class Game
       puts '-'.colorize(:light_yellow) * 80
       @game_over = true
       @board.draw = true
-      return true
+      return false
     else
       next_turn
     end
