@@ -5,5 +5,10 @@ rvm:
   - 2.1.5
   - 2.2.0
   - 2.2.1
+addons:
+  code_climate:
+    repo_token: c0704de6392be837a545582b3476e35f2f36767c7b048c9a48209698ac879078
+  coveralls:
+    repo_token: VwNflMGCFRXMVyV15D6SYLCvwNMo53UpS
+script: bundle exec rspec
 
-script: COVERALLS_PARALLEL=true CODECLIMATE_REPO_TOKEN=c0704de6392be837a545582b3476e35f2f36767c7b048c9a48209698ac879078 bundle exec rspec
