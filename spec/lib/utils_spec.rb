@@ -1,5 +1,4 @@
 describe Utils do
-  include Helpers
   describe '#check_if_x_or_o' do
     context 'parameters invalid or missing' do
       it 'raises an error if not passed any parameters' do

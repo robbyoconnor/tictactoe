@@ -18,18 +18,19 @@ class Board
   end
 
   def valid_move?(row, col)
-    return false if check_dim_bound(row)
-    if check_dim_bound(col)
+    if !check_dim_bound(col) && !check_dim_bound(row)
       false
-    elsif @board[row][col] == ' '
-      true
+    elsif row < 0 || col < 0
+      false
+    elsif @board[row].nil? || @board[row][col] != ' '
+      false
     else
-      false
+      true
     end
   end
 
   def check_dim_bound(size)
-    size >= @rows # arbitrarily choosing rows, it doesn't matter -- it's square.
+    size >= 0 && size < @rows # arbitrarily choosing rows, it doesn't matter -- it's square.
   end
 
   def make_move(row, col, player)
