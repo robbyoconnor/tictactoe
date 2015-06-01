@@ -85,20 +85,20 @@ describe Board do
     let(:board) { build(:board) }
     it 'prints an empty board correctly' do
       expected = "\n\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\n\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\n\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\n\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\n\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\n"
-      output = capture_stdout do
+      output = lambda do
         print board.to_s
       end
-      expect(output).to eq(expected)
+      expect(output).to output(expected).to_stdout
     end
 
     it 'prints a valid board if board is populated' do
       board = build(:draw)
       expected = "\n\e[0;92;49mX\e[0m\e[0;93;49m | \e[0m\e[0;91;49mO\e[0m\e[0;93;49m | \e[0m\e[0;91;49mO\e[0m\n\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\n\e[0;91;49mO\e[0m\e[0;93;49m | \e[0m\e[0;92;49mX\e[0m\e[0;93;49m | \e[0m\e[0;92;49mX\e[0m\n\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\n\e[0;92;49mX\e[0m\e[0;93;49m | \e[0m\e[0;91;49mO\e[0m\e[0;93;49m | \e[0m\e[0;91;49mO\e[0m\n"
 
-      output = capture_stdout do
+      output = lambda do
         print board.to_s
       end
-      expect(output).to eq(expected)
+      expect(output).to output(expected).to_stdout
     end
   end
 end

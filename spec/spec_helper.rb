@@ -44,14 +44,6 @@ module Helpers
       expect(board.make_move(rows, cols, player)).to(eq(expected))
     end
   end
-
-  def capture_stdout(&_block)
-    real_stdout, $stdout = $stdout, StringIO.new
-    yield
-    $stdout.string
-  ensure
-    $stdout = real_stdout
-  end
 end
 
 RSpec.configure do |config|
