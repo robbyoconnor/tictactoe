@@ -14,9 +14,6 @@ class Game
 
   include Utils
 
-  def initialize
-    @game_over = false
-  end
 
   def ttt
     puts 'Welcome to Tic Tac Toe!'.colorize(:light_white)
@@ -81,8 +78,20 @@ class Game
   def prompt_grid_size
     valid = true
     loop do
-      puts 'Grid sizes (Max 12x12)'.center(80).colorize(:light_white)
-      puts '' "
+      display_menu
+      print 'Invalid choice. '.colorize(:light_red) unless valid
+      print 'Select a grid size: '.colorize(:light_green)
+      valid = get_input
+      break if valid
+    end
+  end
+  def get_input
+    choice = gets.chomp.strip
+    grid_size_choice? choice
+  end
+  def display_menu
+    puts 'Grid sizes (Max 12x12)'.center(80).colorize(:light_white)
+    puts '' "
             ---------------------
             | 1.  3x3           |
             | 2.  4x4           |
@@ -95,14 +104,6 @@ class Game
             | 9.  11x11         |
             | 10. 12x12         |
             ---------------------" ''.colorize(:light_white)
-
-      print 'Invalid choice. '.colorize(:light_red) unless valid
-
-      print 'Select a grid size: '.colorize(:light_green)
-      choice = gets.chomp.strip
-      valid = grid_size_choice? choice
-      break if valid
-    end
   end
 
   def grid_size_choice?(choice)
