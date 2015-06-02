@@ -35,7 +35,7 @@ module Utils
     collection.count { |p| p == player.letter }
   end
 
-  def try_move(row, col, player)
-    @game.board.make_move row.to_i, col.to_i, player
+  def try_move(game,row, col, player)
+    game.board.make_move row.to_i, col.to_i, player
   end
 end

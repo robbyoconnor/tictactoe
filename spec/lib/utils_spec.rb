@@ -42,7 +42,7 @@ describe Utils do
 
   describe '#error' do
     it 'prints a string which is light_red with the message given' do
-      output = lambda  do
+      output = lambda do
         print error('testing 123')
       end
       expect(output).to output("\e[0;91;49mtesting 123\e[0m").to_stdout
@@ -58,4 +58,42 @@ describe Utils do
       expect(color('O')).to eq(:light_red)
     end
   end
+
+  describe "#try_move" do
+    context "full board" do
+      let!(:game) { build(:game, board: build(:board, :draw)) }
+      it "returns false when there is not a spot to play" do
+        expect(try_move(game, 0, 0, 'X')).to be false
+        expect(try_move(game, 0, 1, 'X')).to be false
+        expect(try_move(game, 0, 2, 'X')).to be false
+        expect(try_move(game, 1, 0, 'X')).to be false
+        expect(try_move(game, 1, 1, 'X')).to be false
+        expect(try_move(game, 1, 2, 'X')).to be false
+        expect(try_move(game, 2, 0, 'X')).to be false
+        expect(try_move(game, 2, 1, 'X')).to be false
+        expect(try_move(game, 2, 2, 'X')).to be false
+      end
+      it "returns false if the index is out of bounds" do
+        expect(try_move(game, 2, 3, 'X')).to be false
+        expect(try_move(game, 4, 2, 'X')).to be false
+      end
+    end
+    context "blank board" do
+      let!(:game) { build(:game, board: build(:board, :blank))}
+
+      it "returns true if the spot is empty" do
+        expect(try_move(game, 0, 0, 'X')).to be true
+        expect(try_move(game, 0, 1, 'X')).to be true
+        expect(try_move(game, 0, 2, 'X')).to be true
+      end
+      it "returns false if the spot is not empty" do
+        expect(try_move(game, 0, 0, 'X')).to be false
+        expect(try_move(game, 0, 1, 'X')).to be false
+        expect(try_move(game, 0, 2, 'X')).to be false
+      end
+    end
+  end
 end
+
+
+
