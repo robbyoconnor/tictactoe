@@ -1,5 +1,5 @@
 # Things I want to do
-- [ ] Write tests -- taking advantage of the modularity
+- [ ] Write tests -- taking advantage of the modularity **IN PROGRESS**
 - [ ] Decouple the UI from the backend and write a web-frontend
 - [ ] Continue to clean up the code where ever possible. 
      
