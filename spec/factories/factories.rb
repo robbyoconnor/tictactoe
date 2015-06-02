@@ -57,7 +57,11 @@ FactoryGirl.define do
     initialize_with { new(letter, game) }
   end
 
-  factory :column_win_condition, class: ColumnWinCondition do
+  factory :condition, class: Condition do
+    game { build(:game, board: build(:board, :column_winner)) }
+    initialize_with { new(game) }
+  end
+  factory :column_win_condition, parent: :condition, class: ColumnWinCondition do
 
     trait :winner do
       game { build(:game, board: build(:board, :column_winner)) }
@@ -67,4 +71,14 @@ FactoryGirl.define do
     end
     initialize_with { new(game) }
   end
+  factory :row_win_condition, class: RowWinCondition do
+    trait :winner do
+      game { build(:game, board: build(:board, :row_winner)) }
+    end
+    trait :draw do
+      game { build(:game, board: build(:board, :draw)) }
+    end
+    initialize_with { new(game) }
+  end
+
 end
