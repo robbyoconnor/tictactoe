@@ -29,8 +29,8 @@ module Helpers
       expect(valid).to be expected
     end
 
-    def make_board(game, size)
-       game.create_board size, size
+    def make_game_board(game, size)
+       game.create_board size
        expect(game.board).to_not be nil
        expect(game.board.rows).to eq(size)
        expect(game.board.cols).to eq(size)
