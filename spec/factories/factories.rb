@@ -1,31 +1,38 @@
 FactoryGirl.define do
-  factory :board, class: Board
+  factory :board, class: Board do
+    rows 3
+    cols 3
+    moves_left 9
+    trait :main_diag_win do
+      board [%w(X O X), %w(O X O), %w(O O X)]
+    end
 
-  factory :main_diag_win, class: Board do
-    board [%w(X O X), %w(O X O), %w(O O X)]
-  end
+    trait :minor_diag do
+      board [%w(X O O), %w(O O O), %w(O X O)]
+    end
 
-  factory :minor_diag, class: Board do
-    board [%w(X O O), %w(O O O), %w(O X O)]
-  end
+    trait :minor_diag_win do
+      board [[' ', ' ', 'X'], [' ', 'X', ' '], ['X', ' ', ' ']]
+    end
 
-  factory :minor_diag_win, class: Board do
-    board [[' ', ' ', 'X'], [' ', 'X', ' '], ['X', ' ', ' ']]
-  end
+    trait :major_diag_win do
+      board [['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X']]
+    end
 
-  factory :major_diag_win, class: Board do
-    board [['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X']]
-  end
+    trait :row_winner do
+      board [%w(X X X), [' ', ' ', ' '], [' ', ' ', ' ']]
+    end
 
-  factory :row_winner, class: Board do
-    board [%w(X X X), [' ', ' ', ' '], [' ', ' ', ' ']]
-  end
+    trait :column_winner do
+      board [['X', ' ', ' '], ['X', ' ', ' '], ['X', ' ', ' ']]
+    end
+    trait :draw do
+      board [%w(X O O), %w(O X X), %w(X O O)]
+    end
 
-  factory :column_winner, class: Board do
-    board [['X', ' ', ' '], ['X', ' ', ' '], ['X', ' ', ' ']]
-  end
-  factory :draw, class: Board do
-    board [%w(X O O), %w(O X X), %w(X O O)]
+    trait :blank do
+      board [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
+    end
   end
 
   factory :game, class: Game do
@@ -34,6 +41,7 @@ FactoryGirl.define do
     player { build(:human, letter: 'X', game: self) }
     computer { build(:computer, letter: 'O', game: self) }
     turn { player }
+
   end
 
   factory :human, class: Human do
@@ -49,10 +57,10 @@ FactoryGirl.define do
   factory :column_win_condition, class: ColumnWinCondition do
 
     trait :winner do
-      game { build(:game, board: build(:column_winner)) }
+      game { build(:game, board: build(:board, :column_winner)) }
     end
     trait :draw do
-      game { build(:game, board: build(:draw)) }
+      game { build(:game, board: build(:board, :draw)) }
     end
     initialize_with { new(game) }
   end

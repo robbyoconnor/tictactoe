@@ -92,7 +92,7 @@ describe Board do
     end
 
     it 'prints a valid board if board is populated' do
-      board = build(:draw)
+      board = build( :board, :draw)
       expected = "\n\e[0;92;49mX\e[0m\e[0;93;49m | \e[0m\e[0;91;49mO\e[0m\e[0;93;49m | \e[0m\e[0;91;49mO\e[0m\n\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\n\e[0;91;49mO\e[0m\e[0;93;49m | \e[0m\e[0;92;49mX\e[0m\e[0;93;49m | \e[0m\e[0;92;49mX\e[0m\n\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\n\e[0;92;49mX\e[0m\e[0;93;49m | \e[0m\e[0;91;49mO\e[0m\e[0;93;49m | \e[0m\e[0;91;49mO\e[0m\n"
 
       output = lambda do
