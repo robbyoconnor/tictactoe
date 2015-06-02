@@ -11,6 +11,17 @@ require 'factory_girl'
 require 'support/fake_io'
 
 module Helpers
+  module IOUtils
+    def local_io(in_str)
+      old_stdin, old_stdout = $stdin, $stdout
+      $stdin = StringIO.new(in_str)
+      $stdout = StringIO.new
+      yield
+      $stdout.string
+    ensure
+      $stdin, $stdout = old_stdin, old_stdout
+    end
+  end
   module Utils
     # utility function to make exercising our utility function DRY
     def user_choice_valid?(choice)
@@ -74,20 +85,12 @@ module Helpers
       expect(board.make_move(rows, cols, player)).to(eq(expected))
     end
   end
-  def local_io(in_str)
-    old_stdin, old_stdout = $stdin, $stdout
-    $stdin = StringIO.new(in_str)
-    $stdout = StringIO.new
-    yield
-    $stdout.string
-  ensure
-    $stdin, $stdout = old_stdin, old_stdout
-  end
 end
 
 RSpec.configure do |config|
   config.include Utils
   config.include Helpers
+  config.include Helpers::IOUtils
   config.include Helpers::Utils
   config.include Helpers::Board
   config.include Helpers::Game
