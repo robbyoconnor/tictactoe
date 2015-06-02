@@ -23,7 +23,7 @@ module Helpers
       check_numeric choice
     end
   end
-  module GameHelper
+  module Game
     def player_choice(game,choice,expected)
       valid = game.validate_player_choice(choice)
       expect(valid).to be expected
@@ -90,7 +90,7 @@ RSpec.configure do |config|
   config.include Helpers
   config.include Helpers::Utils
   config.include Helpers::Board
-  config.include Helpers::GameHelper
+  config.include Helpers::Game
   config.include FactoryGirl::Syntax::Methods
   config.expect_with :rspec do |c|
     c.syntax = :expect
