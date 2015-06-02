@@ -27,7 +27,9 @@ FactoryGirl.define do
       board [['X', ' ', ' '], ['X', ' ', ' '], ['X', ' ', ' ']]
     end
     trait :draw do
-      board [%w(X O O), %w(O X X), %w(X O O)]
+      board [%w(X O O),
+             %w(O X X),
+             %w(X O O)]
     end
 
     trait :blank do
@@ -80,5 +82,22 @@ FactoryGirl.define do
     end
     initialize_with { new(game) }
   end
-
+  factory :minor_diagonal_win_condition, class: MinorDiagonalWinCondition do
+    trait :winner do
+      game { build(:game, board: build(:board, :minor_diag_win)) }
+    end
+    trait :draw do
+      game { build(:game, board: build(:board, :draw)) }
+    end
+    initialize_with { new(game) }
+  end
+  factory :main_diagonal_win_condition, class: MainDiagonalWinCondition do
+    trait :winner do
+      game { build(:game, board: build(:board, :main_diag_win)) }
+    end
+    trait :draw do
+      game { build(:game, board: build(:board, :draw)) }
+    end
+    initialize_with { new(game) }
+  end
 end
