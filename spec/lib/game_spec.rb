@@ -17,4 +17,18 @@ describe Game do
     end
   end
 
+  describe "#create_board" do
+    it "creates a board of the given size" do
+      make_board(g, 3)
+      make_board(g, 4)
+      make_board(g, 5)
+    end
+  end
+
+  describe "#create_players" do
+    it "creates a player and computer player" do
+      create_players(g,'X')
+      create_players(g,'O')
+    end
+  end
 end

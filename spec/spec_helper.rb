@@ -28,6 +28,24 @@ module Helpers
       valid = game.validate_player_choice(choice)
       expect(valid).to be expected
     end
+
+    def make_board(game, size)
+       game.create_board size, size
+       expect(game.board).to_not be nil
+       expect(game.board.rows).to eq(size)
+       expect(game.board.cols).to eq(size)
+       expect(game.cols).to eq(size)
+       expect(game.rows).to eq(size)
+    end
+
+    def create_players(game,choice)
+      game.create_players(choice)
+      expect(game.player).to_not be nil
+      expect(game.computer).to_not be nil
+      expect(game.player.letter).to eq choice
+      computer = choice == 'X' ? 'O' : 'X'
+      expect(game.computer.letter).to eq computer
+    end
   end
 
   module Board
