@@ -46,6 +46,11 @@ module Helpers
       computer = choice == 'X' ? 'O' : 'X'
       expect(game.computer.letter).to eq computer
     end
+
+    def grid_size_valid?(game,choice,expectation)
+      expect(game.grid_size_choice?(choice)).to be expectation
+      expect(game.board).to_not be nil if expectation
+    end
   end
 
   module Board

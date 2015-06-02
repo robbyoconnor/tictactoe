@@ -1,5 +1,30 @@
 describe Game do
   g = Game.new
+
+  describe "#grid_size_choice" do
+    context "valid" do 
+      it "returns true if valid" do 
+        grid_size_valid?(g,1.to_s,true)
+        grid_size_valid?(g,2.to_s,true)
+        grid_size_valid?(g,3.to_s,true)
+        grid_size_valid?(g,4.to_s,true)
+        grid_size_valid?(g,5.to_s,true)
+        grid_size_valid?(g,6.to_s,true)
+        grid_size_valid?(g,7.to_s,true)
+        grid_size_valid?(g,8.to_s,true)
+        grid_size_valid?(g,9.to_s,true)
+        grid_size_valid?(g,10.to_s,true)
+      end
+    end
+    context "invalid" do
+      it "returns false if not valid" do
+        grid_size_valid?(g,11,false)
+        grid_size_valid?(g,42,false)
+        grid_size_valid?(g,-3,false)
+      end
+    end
+  end
+
   describe "#validate_player_choice" do
     context "invalid" do
       it "validates player choices correctly" do
