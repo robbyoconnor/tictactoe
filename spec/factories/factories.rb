@@ -29,11 +29,31 @@ FactoryGirl.define do
   end
 
   factory :game, class: Game do
+    rows 3
+    cols 3
+    player { build(:human, letter: 'X', game: self) }
+    computer { build(:computer, letter: 'O', game: self) }
+    turn { player }
   end
 
   factory :human, class: Human do
+    letter 'X'
+    initialize_with { new(letter, game) }
   end
 
   factory :computer, class: Computer do
+    letter 'O'
+    initialize_with { new(letter, game) }
+  end
+
+  factory :column_win_condition, class: ColumnWinCondition do
+
+    trait :winner do
+      game { build(:game, board: build(:column_winner)) }
+    end
+    trait :draw do
+      game { build(:game, board: build(:draw)) }
+    end
+    initialize_with { new(game) }
   end
 end
