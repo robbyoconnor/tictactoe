@@ -100,4 +100,28 @@ FactoryGirl.define do
     end
     initialize_with { new(game) }
   end
+
+  factory :strategy, class: Strategy do
+
+  end
+
+  factory :corner_move, class: CornerMoveComputerStrategy do
+    trait :blank do
+      game { build(:game, board: build(:board, :blank)) }
+    end
+
+    trait :draw do
+      game { build(:game, board: build(:board, :draw)) }
+    end
+  end
+
+  factory :random_move, class: RandomLocationComputerStrategy do
+    trait :blank do
+      game { build(:game, board: build(:board, :blank)) }
+    end
+
+    trait :draw do
+      game { build(:game, board: build(:board, :draw)) }
+    end
+  end
 end
