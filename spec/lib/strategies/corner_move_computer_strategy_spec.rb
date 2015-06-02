@@ -12,5 +12,18 @@ describe CornerMoveComputerStrategy do
       end
     end
 
+    describe "#find_valid_corner_move" do
+      it "finds a valid corner given a blank board" do
+        srand(0)
+        corner = strategy.find_valid_corner_move
+        expect(corner).to_not be false
+      end
+    end
+
+    describe "#move" do
+      it "returns true if a valid is move is available for a blank board" do
+        expect(strategy.move).to_not be false
+      end
+    end
   end
 end
