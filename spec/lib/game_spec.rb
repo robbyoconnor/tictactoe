@@ -19,9 +19,9 @@ describe Game do
 
   describe "#create_board" do
     it "creates a board of the given size" do
-      make_board(g, 3)
-      make_board(g, 4)
-      make_board(g, 5)
+      make_game_board(g, 3)
+      make_game_board(g, 4)
+      make_game_board(g, 5)
     end
   end
 
