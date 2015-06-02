@@ -41,6 +41,9 @@ FactoryGirl.define do
     player { build(:human, letter: 'X', game: self) }
     computer { build(:computer, letter: 'O', game: self) }
     turn { player }
+    trait :computer_turn do
+      turn { computer }
+    end
 
   end
 
