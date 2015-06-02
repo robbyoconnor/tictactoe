@@ -13,6 +13,6 @@ class RandomLocationComputerStrategy < Strategy
   def pick_random_cell
     row = Random.rand(@game.board.rows)
     col = Random.rand(@game.board.cols)
-    true if try_move row, col, @game.computer.letter rescue false
+    true if try_move @game, row, col, @game.computer.letter rescue false
   end
 end
