@@ -97,5 +97,14 @@ describe Utils do
         expect(try_move(game, 4, 2, 'X')).to be false
       end
     end
+
+    context "game is over" do
+      let!(:game) { build(:game, board: build(:board), game_over: true) }
+      it "returns false if game is over" do
+        expect(try_move(game, 0, 0, 'X')).to be false
+        expect(try_move(game, 0, 1, 'X')).to be false
+        expect(try_move(game, 0, 2, 'X')).to be false
+      end
+    end
   end
 end
