@@ -35,7 +35,7 @@ class Human < Player
     elsif invalid?(move.size >= 2)
       err = 'You did not provide any input, or provided incorrect input.'
       valid = false
-    elsif try_move(move[0], move[1], @letter)
+    elsif try_move(@game, move[0], move[1], @letter)
       valid = true
     else
       err = "The move (#{move[0]},#{move[1]}) is not valid."
