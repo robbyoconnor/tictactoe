@@ -60,6 +60,7 @@ describe Utils do
   end
 
   describe '#try_move' do
+    let!(:game) { build(:game, board: build(:board)) }
     context 'full board' do
       let!(:game) { build(:game, board: build(:board, :draw)) }
       it 'returns false when there is not a spot to play' do
@@ -72,10 +73,6 @@ describe Utils do
         expect(try_move(game, 2, 0, 'X')).to be false
         expect(try_move(game, 2, 1, 'X')).to be false
         expect(try_move(game, 2, 2, 'X')).to be false
-      end
-      it 'returns false if the index is out of bounds' do
-        expect(try_move(game, 2, 3, 'X')).to be false
-        expect(try_move(game, 4, 2, 'X')).to be false
       end
     end
     context 'blank board' do
@@ -92,6 +89,12 @@ describe Utils do
         expect(try_move(game, 0, 0, 'X')).to be false
         expect(try_move(game, 0, 1, 'X')).to be false
         expect(try_move(game, 0, 2, 'X')).to be false
+      end
+    end
+    context "invalid bounds" do
+      it 'returns false if the index is out of bounds' do
+        expect(try_move(game, 2, 3, 'X')).to be false
+        expect(try_move(game, 4, 2, 'X')).to be false
       end
     end
   end
