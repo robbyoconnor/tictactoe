@@ -31,10 +31,6 @@ FactoryGirl.define do
              %w(O X X),
              %w(X O O)]
     end
-
-    trait :blank do
-      board [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
-    end
   end
 
   factory :game, class: Game do
