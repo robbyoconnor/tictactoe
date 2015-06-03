@@ -91,16 +91,16 @@ describe Utils do
         expect(try_move(game, 0, 2, 'X')).to be false
       end
     end
-    context "invalid bounds" do
+    context 'invalid bounds' do
       it 'returns false if the index is out of bounds' do
         expect(try_move(game, 2, 3, 'X')).to be false
         expect(try_move(game, 4, 2, 'X')).to be false
       end
     end
 
-    context "game is over" do
+    context 'game is over' do
       let!(:game) { build(:game, board: build(:board), game_over: true) }
-      it "returns false if game is over" do
+      it 'returns false if game is over' do
         expect(try_move(game, 0, 0, 'X')).to be false
         expect(try_move(game, 0, 1, 'X')).to be false
         expect(try_move(game, 0, 2, 'X')).to be false
