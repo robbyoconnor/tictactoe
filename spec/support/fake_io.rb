@@ -1,11 +1,10 @@
 # 'support/fake_io'
 class FakeIO
-
   attr_accessor :input, :output
 
   def initialize(input)
     @input = input
-    @output = ""
+    @output = ''
   end
 
   def gets

@@ -21,13 +21,15 @@ require 'support/fake_io'
 module Helpers
   module IOUtils
     def local_io(in_str)
-      old_stdin, old_stdout = $stdin, $stdout
+      old_stdin = $stdin
+      old_stdout = $stdout
       $stdin = StringIO.new(in_str)
       $stdout = StringIO.new
       yield
       $stdout.string
     ensure
-      $stdin, $stdout = old_stdin, old_stdout
+      $stdin = old_stdin
+      $stdout = old_stdout
     end
   end
   module Utils
@@ -43,21 +45,21 @@ module Helpers
     end
   end
   module Game
-    def player_choice(game,choice,expected)
+    def player_choice(game, choice, expected)
       valid = game.validate_player_choice(choice)
       expect(valid).to be expected
     end
 
     def make_game_board(game, size)
-       game.create_board size
-       expect(game.board).to_not be nil
-       expect(game.board.rows).to eq(size)
-       expect(game.board.cols).to eq(size)
-       expect(game.cols).to eq(size)
-       expect(game.rows).to eq(size)
+      game.create_board size
+      expect(game.board).to_not be nil
+      expect(game.board.rows).to eq(size)
+      expect(game.board.cols).to eq(size)
+      expect(game.cols).to eq(size)
+      expect(game.rows).to eq(size)
     end
 
-    def create_players(game,choice)
+    def create_players(game, choice)
       game.create_players(choice)
       expect(game.player).to_not be nil
       expect(game.computer).to_not be nil
@@ -66,7 +68,7 @@ module Helpers
       expect(game.computer.letter).to eq computer
     end
 
-    def grid_size_valid?(game,choice,expectation)
+    def grid_size_valid?(game, choice, expectation)
       expect(game.grid_size_choice?(choice)).to be expectation
       expect(game.board).to_not be nil if expectation
     end

@@ -42,7 +42,6 @@ FactoryGirl.define do
     trait :computer_turn do
       turn { computer }
     end
-
   end
 
   factory :human, class: Human do
@@ -60,7 +59,6 @@ FactoryGirl.define do
     initialize_with { new(game) }
   end
   factory :column_win_condition, parent: :condition, class: ColumnWinCondition do
-
     trait :winner do
       game { build(:game, board: build(:board, :column_winner)) }
     end

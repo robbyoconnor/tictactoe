@@ -14,7 +14,6 @@ class Game
 
   include Utils
 
-
   def ttt
     puts 'Welcome to Tic Tac Toe!'.colorize(:light_white)
     loop do
@@ -85,10 +84,12 @@ class Game
       break if valid
     end
   end
+
   def get_input
     choice = gets.chomp.strip
     grid_size_choice? choice
   end
+
   def display_menu
     puts 'Grid sizes (Max 12x12)'.center(80).colorize(:light_white)
     puts '' "

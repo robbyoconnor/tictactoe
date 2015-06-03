@@ -59,10 +59,10 @@ describe Utils do
     end
   end
 
-  describe "#try_move" do
-    context "full board" do
+  describe '#try_move' do
+    context 'full board' do
       let!(:game) { build(:game, board: build(:board, :draw)) }
-      it "returns false when there is not a spot to play" do
+      it 'returns false when there is not a spot to play' do
         expect(try_move(game, 0, 0, 'X')).to be false
         expect(try_move(game, 0, 1, 'X')).to be false
         expect(try_move(game, 0, 2, 'X')).to be false
@@ -73,28 +73,26 @@ describe Utils do
         expect(try_move(game, 2, 1, 'X')).to be false
         expect(try_move(game, 2, 2, 'X')).to be false
       end
-      it "returns false if the index is out of bounds" do
+      it 'returns false if the index is out of bounds' do
         expect(try_move(game, 2, 3, 'X')).to be false
         expect(try_move(game, 4, 2, 'X')).to be false
       end
     end
-    context "blank board" do
-      let!(:game) { build(:game, board: build(:board))}
-      it "returns true if the spot is empty" do
+    context 'blank board' do
+      let!(:game) { build(:game, board: build(:board)) }
+      it 'returns true if the spot is empty' do
         expect(try_move(game, 0, 0, 'X')).to be true
         expect(try_move(game, 0, 1, 'X')).to be true
         expect(try_move(game, 0, 2, 'X')).to be true
       end
-      it "returns false if the spot is not empty" do
+      it 'returns false if the spot is not empty' do
         try_move(game, 0, 0, 'X')
         try_move(game, 0, 1, 'X')
-        try_move(game, 0, 2, 'X') 
+        try_move(game, 0, 2, 'X')
         expect(try_move(game, 0, 0, 'X')).to be false
         expect(try_move(game, 0, 1, 'X')).to be false
         expect(try_move(game, 0, 2, 'X')).to be false
       end
-
     end
   end
 end
-
