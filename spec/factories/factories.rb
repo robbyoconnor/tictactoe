@@ -31,6 +31,12 @@ FactoryGirl.define do
              %w(O X X),
              %w(X O O)]
     end
+
+    trait :corners_occupied do
+      board [['X', ' ', 'X'],
+             [' ', ' ', ' '],
+             ['X', ' ', 'X']]
+    end
   end
 
   factory :game, class: Game do
@@ -105,8 +111,8 @@ FactoryGirl.define do
       game { build(:game, board: build(:board)) }
     end
 
-    trait :draw do
-      game { build(:game, board: build(:board, :draw)) }
+    trait :corners_occupied do
+      game { build(:game, board: build(:board, :corners_occupied)) }
     end
     initialize_with { new(game) }
   end

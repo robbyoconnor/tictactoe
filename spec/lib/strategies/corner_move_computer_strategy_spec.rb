@@ -28,7 +28,7 @@ describe CornerMoveComputerStrategy do
   end
 
   context 'full board' do
-    let!(:strategy) {  build(:corner_move, :draw) }
+    let!(:strategy) {  build(:corner_move, :corners_occupied) }
     describe '#get_valid_corner_moves' do
       it 'returns all valid corner moves' do
         expect(strategy.get_valid_corner_moves).to match_array []
