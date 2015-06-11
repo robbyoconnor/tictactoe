@@ -6,8 +6,9 @@ class Strategy
   def initialize(game)
     @game = game
   end
-
+# :nocov:
   def move
     false
   end
+  # :nocov:
 end
