@@ -102,7 +102,7 @@ FactoryGirl.define do
 
   factory :corner_move, class: CornerMoveComputerStrategy do
     trait :blank do
-      game { build(:game, board: build(:board, :blank)) }
+      game { build(:game, board: build(:board)) }
     end
 
     trait :draw do
@@ -111,9 +111,9 @@ FactoryGirl.define do
     initialize_with { new(game) }
   end
 
-  factory :random_move, class: RandomLocationComputerStrategy do
+  factory :random_move_strategy, class: RandomLocationComputerStrategy do
     trait :blank do
-      game { build(:game, board: build(:board, :blank)) }
+      game { build(:game, board: build(:board)) }
     end
 
     trait :draw do
