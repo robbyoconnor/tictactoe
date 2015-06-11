@@ -96,6 +96,7 @@ FactoryGirl.define do
   end
 
   factory :strategy, class: Strategy do
+    game { build(:game, board: build(:board)) }
     initialize_with { new(game) }
   end
 

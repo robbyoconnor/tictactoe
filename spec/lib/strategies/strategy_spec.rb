@@ -1,4 +1,4 @@
-describe Stategy do
+describe Strategy do
   let!(:strategy) { build(:strategy) }
   describe '#move' do
     it 'returns false' do
