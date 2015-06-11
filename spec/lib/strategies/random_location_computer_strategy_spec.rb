@@ -4,7 +4,7 @@ describe RandomLocationComputerStrategy do
     Random.expects(:rand).returns(1)
   end
   context 'blank board' do
-    let!(:strategy) { build(:random_move_strategy, game: build(:game, board: build(:board))) }
+    let!(:strategy) { build(:random_move_strategy, :blank) }
     describe '#pick_random_cell' do
 
       it "returns a valid random cell given a blank board" do
@@ -19,7 +19,7 @@ describe RandomLocationComputerStrategy do
   end
 
   context 'full board' do
-    let!(:strategy) { build(:random_move_strategy, game: build(:game, board: build(:board, :draw))) }
+    let!(:strategy) { build(:random_move_strategy, :draw) }
     describe '#pick_random_cell' do
       it "returns a valid random cell given a blank board" do
         expect(strategy.pick_random_cell).to be false
