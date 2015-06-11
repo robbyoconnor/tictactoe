@@ -4,6 +4,7 @@ require 'codeclimate-test-reporter'
 CodeClimate::TestReporter.start
 
 require 'rspec'
+require 'mocha'
 require 'utils'
 require 'board'
 require 'game'
@@ -105,6 +106,7 @@ RSpec.configure do |config|
   config.include Helpers::Board
   config.include Helpers::Game
   config.include FactoryGirl::Syntax::Methods
+  config.mock_with :mocha
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end

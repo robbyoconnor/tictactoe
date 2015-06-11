@@ -48,8 +48,11 @@ GEM
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     lumberjack (1.0.9)
+    metaclass (0.0.4)
     method_source (0.8.2)
     minitest (5.5.1)
+    mocha (1.1.0)
+      metaclass (~> 0.0.1)
     nenv (0.2.0)
     notiffany (0.0.3)
       nenv (~> 0.1)
@@ -104,6 +107,7 @@ DEPENDENCIES
   colorize (~> 0.7.7)
   factory_girl (~> 4.0)
   guard-rspec (~> 4.5.0)
+  mocha
   pry-byebug (~> 3.1.0)
   rake
   rspec (~> 3.2.0)

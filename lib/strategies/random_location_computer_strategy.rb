@@ -13,7 +13,9 @@ class RandomLocationComputerStrategy < Strategy
   def pick_random_cell
     row = get_random_num
     col = get_random_num
-    true if try_move @game, row, col, @game.computer.letter rescue false
+    return true if try_move @game, row, col, @game.computer.letter
+    false
+
   end
 
   def get_random_num

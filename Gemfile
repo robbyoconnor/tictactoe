@@ -10,6 +10,7 @@ group :development do
   gem 'guard-rspec', '~> 4.5.0'
   gem 'pry-byebug', '~> 3.1.0'
   gem 'factory_girl', '~> 4.0'
+  gem 'mocha'
 end
 
 gem 'codeclimate-test-reporter', group: :test, require: nil
