@@ -57,7 +57,6 @@ class Game
       return true
     elsif @board.moves_left == 0
       puts "Cat's Game.".colorize(:light_green)
-      puts '-'.colorize(:light_yellow) * 80
       @game_over = true
       @board.draw = true
       return false
