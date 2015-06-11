@@ -1,7 +1,8 @@
 # Things I want to do
 - [ ] Write tests -- taking advantage of the modularity **IN PROGRESS**
 - [ ] Decouple the UI from the backend and write a web-frontend
-- [ ] Continue to clean up the code where ever possible. 
+- [ ] Continue to clean up the code where ever possible.
+- [ ] Make the computer a bit smarter -- it's not smart enough for me.
      
 
 # Completed 
