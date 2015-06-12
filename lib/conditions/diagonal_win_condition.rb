@@ -35,6 +35,8 @@ class DiagonalWinCondition < Condition
   end
 
   def diagonal_win(diagonal)
-    count(send("#{diagonal}_diagonal"), @game.turn) == @game.rows
+    ret = count(send("#{diagonal}_diagonal"), @game.turn) == @game.rows
+    puts ret
+    ret
   end
 end

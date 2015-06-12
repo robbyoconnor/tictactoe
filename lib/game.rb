@@ -27,11 +27,15 @@ class Game
     @game_over = false
     prompt_grid_size
     prompt_player_choice
+    init_game
+    play
+    puts '-'.colorize(:light_yellow) * 80
+  end
+
+  def init_game
     @turn = first_player
     @win_conditions = [ColumnWinCondition.new(self), RowWinCondition.new(self),
                        MinorDiagonalWinCondition.new(self), MainDiagonalWinCondition.new(self)]
-    play
-    puts '-'.colorize(:light_yellow) * 80
   end
 
   def first_player
@@ -54,7 +58,7 @@ class Game
     if @win_conditions.map(&:win?).include?(true)
       @game_over = true
       @winner = @turn
-      return true
+      true
     elsif @board.moves_left == 0
       puts "Cat's Game.".colorize(:light_green)
       @game_over = true
@@ -62,8 +66,8 @@ class Game
       return false
     else
       next_turn
+      false
     end
-    false
   end
 
   def make_play(player)

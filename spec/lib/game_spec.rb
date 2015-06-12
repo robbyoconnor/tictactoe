@@ -56,4 +56,37 @@ describe Game do
       create_players(g, 'O')
     end
   end
+
+  describe '#check_win' do
+    before :each do
+      game.init_game
+    end
+    context 'blank board' do
+      let!(:game) { build(:game, board: build(:board)) }
+      it 'does not return as a winner for a blank board' do
+        expect(game.check_win).to be false
+      end
+    end
+    context 'draw' do
+      let!(:game) { build(:game, board: build(:board, :draw)) }
+      it 'successfully returns a draw' do
+        expect(game.check_win).to be false
+        expect(game.board.draw).to be true
+      end
+    end
+
+    context 'row win' do
+      let!(:game) { build(:game, board: build(:board, :row_winner)) }
+      it 'row winner declares winner' do
+        expect(game.check_win).to be true
+      end
+    end
+
+    context 'column win' do
+      let!(:game) { build(:game, board: build(:board, :column_winner)) }
+      it 'column winner declares winner' do
+        expect(game.check_win).to be true
+      end
+    end
+  end
 end

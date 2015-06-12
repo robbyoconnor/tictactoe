@@ -4,19 +4,15 @@ FactoryGirl.define do
     cols 3
     moves_left 9
     trait :main_diag_win do
-      board [%w(X O X), %w(O X O), %w(O O X)]
-    end
-
-    trait :minor_diag do
-      board [%w(X O O), %w(O O O), %w(O X O)]
+      board [%w(X O X),
+             %w(O X O),
+             %w(O O X)]
     end
 
     trait :minor_diag_win do
-      board [[' ', ' ', 'X'], [' ', 'X', ' '], ['X', ' ', ' ']]
-    end
-
-    trait :major_diag_win do
-      board [['X', ' ', ' '], [' ', 'X', ' '], [' ', ' ', 'X']]
+      board [%w(O O X),
+             %w(O X O),
+             %w(X O X)]
     end
 
     trait :row_winner do
@@ -24,12 +20,15 @@ FactoryGirl.define do
     end
 
     trait :column_winner do
-      board [['X', ' ', ' '], ['X', ' ', ' '], ['X', ' ', ' ']]
+      board [['X', 'O', ' '],
+             ['X', ' ', ' '],
+             ['X', ' ', ' ']]
     end
     trait :draw do
       board [%w(X O O),
              %w(O X X),
              %w(X O O)]
+      moves_left 0
     end
 
     trait :corners_occupied do

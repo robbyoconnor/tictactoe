@@ -15,7 +15,6 @@ class RandomLocationComputerStrategy < Strategy
     col = get_random_num
     return true if try_move @game, row, col, @game.computer.letter
     false
-
   end
 
   def get_random_num
