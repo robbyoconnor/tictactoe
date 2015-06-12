@@ -74,12 +74,5 @@ describe Game do
         expect(game.board.draw).to be true
       end
     end
-
-    context 'row win' do
-      let!(:game) { build(:game, board: build(:board, :row_winner)) }
-      it 'row winner declares winner' do
-        expect(game.check_win).to be true
-      end
-    end
   end
 end
