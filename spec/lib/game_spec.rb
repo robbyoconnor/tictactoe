@@ -81,12 +81,5 @@ describe Game do
         expect(game.check_win).to be true
       end
     end
-
-    context 'column win' do
-      let!(:game) { build(:game, board: build(:board, :column_winner)) }
-      it 'column winner declares winner' do
-        expect(game.check_win).to be true
-      end
-    end
   end
 end
