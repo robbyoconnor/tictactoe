@@ -46,9 +46,9 @@ class Board
   end
 
   def get_rows(cols)
-    ret = @board.map do |row|
+    @board.map do |row|
       row.map { |e| "#{e}".colorize(color(e)) }
-      .join(' | '.colorize(:light_yellow))
+        .join(' | '.colorize(:light_yellow))
     end.join("\n" + '---'.colorize(:light_white) * dashes(cols) + "\n")
   end
 
