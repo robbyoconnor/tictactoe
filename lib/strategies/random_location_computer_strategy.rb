@@ -11,13 +11,13 @@ class RandomLocationComputerStrategy < Strategy
   end
 
   def pick_random_cell
-    row = get_random_num
-    col = get_random_num
+    row = random_num
+    col = random_num
     return true if try_move @game, row, col, @game.computer.letter
     false
   end
 
-  def get_random_num
+  def random_num
     Random.rand(@game.board.rows) # arbitrary
   end
 end

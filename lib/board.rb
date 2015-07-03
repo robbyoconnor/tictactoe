@@ -28,7 +28,8 @@ class Board
   end
 
   def check_dim_bound(size)
-    size >= 0 && size < @rows # arbitrarily choosing rows, it doesn't matter -- it's square.
+    # arbitrarily choosing rows, it doesn't matter -- it's square.
+    size >= 0 && size < @rows
   end
 
   def make_move(row, col, player)
