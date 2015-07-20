@@ -83,12 +83,12 @@ class Game
       display_menu
       print 'Invalid choice. '.colorize(:light_red) unless valid
       print 'Select a grid size: '.colorize(:light_green)
-      valid = get_input
+      valid = user_input
       break if valid
     end
   end
 
-  def get_input
+  def user_input
     choice = gets.chomp.strip
     grid_size_choice? choice
   end
@@ -130,13 +130,13 @@ class Game
     choice = '', valid = true
     loop do
       print_msg valid
-      valid, choice = get_and_validate_choice
+      valid, choice = receive_and_validate_choice
       break if valid
     end
     create_players choice if valid
   end
 
-  def get_and_validate_choice
+  def receive_and_validate_choice
     choice = gets.chomp.strip.upcase
     valid = validate_player_choice(choice)
     [valid, choice]

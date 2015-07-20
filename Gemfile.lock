@@ -106,6 +106,3 @@ DEPENDENCIES
   rake
   rspec (~> 3.2.0)
   rspec_junit_formatter (= 0.2.2)
-
-BUNDLED WITH
-   1.10.5
