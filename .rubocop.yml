@@ -13,5 +13,5 @@ Metrics/MethodLength:
 Style/Documentation:
   Enabled: false
 
- Style/NestedTernaryOperator:
+Style/NestedTernaryOperator:
   Enabled: false
