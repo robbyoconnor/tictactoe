@@ -15,7 +15,9 @@
 **Requires Ruby 2.0.0++**
 
 #To Run
+```sh
 ruby bin/ttt.rb
+```
 
 # How to play
 - Specify Grid size (3x3 is the smallest; 12x12 is the largest)
