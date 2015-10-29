@@ -1,6 +1,6 @@
 describe CornerMoveComputerStrategy do
   context 'blank board' do
-    let!(:strategy) {  build(:corner_move, :blank) }
+    let!(:strategy) { build(:corner_move, :blank) }
     describe '#corners' do
       it 'returns the 4 corners of a 3x3 board' do
         expect(strategy.corners).to match_array [[0, 0], [0, 2], [2, 2], [2, 0]]
