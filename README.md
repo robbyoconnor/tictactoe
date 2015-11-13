@@ -3,6 +3,7 @@
 [![Test Coverage](https://codeclimate.com/github/robbyoconnor/tictactoe/badges/coverage.svg)](https://codeclimate.com/github/robbyoconnor/tictactoe/coverage)
 [![Build Status](https://travis-ci.org/robbyoconnor/tictactoe.svg?branch=master)](https://travis-ci.org/robbyoconnor/tictactoe)
 ![Github License](https://img.shields.io/badge/License-MIT-green.svg)
+[![Made with Spacemacs](https://cdn.rawgit.com/syl20bnr/spacemacs/develop/assets/spacemacs-badge.svg)](http://github.com/syl20bnr/spacemacs)
 [![forthebadge](http://forthebadge.com/images/badges/built-with-ruby.svg)](http://forthebadge.com)
 [![forthebadge](http://forthebadge.com/images/badges/uses-git.svg)](http://forthebadge.com)
 [![forthebadge](http://forthebadge.com/images/badges/built-by-developers.svg)](http://forthebadge.com)
