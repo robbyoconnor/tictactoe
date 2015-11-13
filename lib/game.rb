@@ -19,7 +19,7 @@ class Game
     loop do
       start_game
       print 'Game Over, do you want to play again (y/n)? '.colorize(:light_yellow)
-      break if (gets.chomp.downcase == 'n')
+      break if gets.chomp.downcase == 'n'
     end
   end
 

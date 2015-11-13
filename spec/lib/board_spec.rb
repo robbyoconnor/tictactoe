@@ -73,11 +73,11 @@ describe Board do
     end
   end
 
-  describe '#get_rows' do
+  describe '#grid' do
     let(:board) { build(:board) }
     it 'returns an empty board correctly.' do
       expected = "\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\n\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\n\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\n\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\e[0;97;49m---\e[0m\n\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m\e[0;93;49m | \e[0m\e[0;91;49m \e[0m"
-      expect(board.get_rows).to eq(expected)
+      expect(board.grid).to eq(expected)
     end
   end
 

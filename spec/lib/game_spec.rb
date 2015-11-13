@@ -28,8 +28,8 @@ describe Game do
   describe '#validate_player_choice' do
     context 'invalid' do
       it 'validates player choices correctly' do
-        player_choice g, 'XXX', false
-        player_choice g, 'OOO', false
+        player_choice g, 'XXXXX', false
+        player_choice g, 'OOOOO', false
         player_choice g, 'A', false
       end
     end
