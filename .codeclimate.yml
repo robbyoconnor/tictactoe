@@ -1,2 +1,16 @@
-languages:
-  Ruby: true
+---
+engines:
+  bundler-audit:
+    enabled: true
+  fixme:
+    enabled: true
+  rubocop:
+    enabled: true
+    checks:
+      Rubocop/Rails/Output:
+        enabled: false
+ratings:
+  paths:
+  - Gemfile.lock
+  - "**.rb"
+exclude_paths: []
