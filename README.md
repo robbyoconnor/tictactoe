@@ -1,5 +1,6 @@
 # Tic Tac Toe written in Ruby
 [![Code Climate](https://codeclimate.com/github/robbyoconnor/tictactoe/badges/gpa.svg)](https://codeclimate.com/github/robbyoconnor/tictactoe)
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/e7ce217e6650421a8ccfe28aed52d0f9)](https://www.codacy.com/app/robby-oconnor/tictactoe)
 [![Test Coverage](https://codeclimate.com/github/robbyoconnor/tictactoe/badges/coverage.svg)](https://codeclimate.com/github/robbyoconnor/tictactoe/coverage)
 [![Build Status](https://travis-ci.org/robbyoconnor/tictactoe.svg?branch=master)](https://travis-ci.org/robbyoconnor/tictactoe)
 [![Stories in Ready](https://badge.waffle.io/robbyoconnor/tictactoe.png?label=ready&title=Ready)](https://waffle.io/robbyoconnor/tictactoe)
