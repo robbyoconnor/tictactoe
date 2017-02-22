@@ -77,7 +77,7 @@ module Helpers
 
   module Board
     def board_valid(rows, cols, valid)
-      board = (rows == 3 && cols == 3) ? build(:board) : get_board(rows, cols)
+      board = rows == 3 && cols == 3 ? build(:board) : get_board(rows, cols)
       puts board.rows
       expect(board.rows).to(eq(rows))
       expect(board.cols).to(eq(cols))

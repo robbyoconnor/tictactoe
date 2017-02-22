@@ -48,14 +48,14 @@ class Board
 
   def grid
     @board.map do |row|
-      row.map { |e| "#{e}".colorize(color(e)) }
-        .join(' | '.colorize(:light_yellow))
+      row.map { |e| e.to_s.colorize(color(e)) }
+         .join(' | '.colorize(:light_yellow))
     end.join("\n" + '---'.colorize(:light_white) * dashes(@cols) + "\n")
   end
 
   # to make shit pretty...we print out the dashes differently depending on how many columns the grid
   def dashes(cols)
-    ((cols > 3) ? (cols <= 9 ? cols + 2 : cols + 3) : cols)
+    (cols > 3 ? (cols <= 9 ? cols + 2 : cols + 3) : cols)
   end
 
   def to_s

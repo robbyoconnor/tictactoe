@@ -19,7 +19,7 @@ class Game
     loop do
       start_game
       print 'Game Over, do you want to play again (y/n)? '.colorize(:light_yellow)
-      break if gets.chomp.downcase == 'n'
+      break if gets.chomp.casecmp('n').zero?
     end
   end
 
@@ -44,7 +44,7 @@ class Game
   end
 
   def next_turn
-    (@turn.equal? @player) ? @turn = @computer : @turn = @player unless @game_over
+    @turn = @turn.equal? @player ? @computer : @player unless @game_over
   end
 
   def play
@@ -59,7 +59,7 @@ class Game
       @game_over = true
       @winner = @turn
       true
-    elsif @board.moves_left == 0
+    elsif @board.moves_left.zero?
       puts "Cat's Game.".colorize(:light_green)
       @game_over = true
       @board.draw = true
@@ -169,10 +169,10 @@ class Game
   end
 
   def create_computer
-    if @player.letter == 'X'
-      @computer = Computer.new 'O', self
-    else
-      @computer = Computer.new 'X', self
-    end
+    @computer = if @player.letter == 'X'
+                  Computer.new 'O', self
+                else
+                  Computer.new 'X', self
+                end
   end
 end

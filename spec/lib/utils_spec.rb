@@ -35,8 +35,8 @@ describe Utils do
     end
 
     it 'returns true if all numeric' do
-      expect(user_input_numeric '12').to be true
-      expect(user_input_numeric '1 2').to be true
+      expect(user_input_numeric('12')).to be true
+      expect(user_input_numeric('1 2')).to be true
     end
   end
 
@@ -50,11 +50,11 @@ describe Utils do
   end
 
   describe '#color' do
-    it "returns light_green if the player is \"X\"" do
+    it 'returns light_green if the player is "X"' do
       expect(color('X')).to eq(:light_green)
     end
 
-    it "returns :light_red if the player is \"O\"" do
+    it 'returns :light_red if the player is "O"' do
       expect(color('O')).to eq(:light_red)
     end
   end
